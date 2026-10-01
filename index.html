@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Guidance Handbook | Sunbird Trust Interactive Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        sunbird: {
+                            green: '#1b4d3e',
+                            lightgreen: '#2e7d32',
+                            teal: '#00796b',
+                            mint: '#e8f5e9',
+                            gold: '#f57c00',
+                            accent: '#ffb300',
+                            dark: '#0f2921'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Outfit', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html, body {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .blackboard-bg {
+            background-color: #1a3c34;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .chalk-border {
+            border: 8px solid #8d5b4c;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.6), 0 6px 18px rgba(0,0,0,0.25);
+        }
+        @media (min-width: 640px) {
+            .chalk-border {
+                border: 12px solid #8d5b4c;
+            }
+        }
+        .quote-card {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff3cc 100%);
+            border-left: 6px solid #f57c00;
+        }
+        .dark .quote-card {
+            background: linear-gradient(135deg, #2a2518 0%, #1f1b10 100%);
+            border-left: 6px solid #ffb300;
+        }
+        .tab-btn.active {
+            color: #1b4d3e;
+            border-bottom: 3px solid #1b4d3e;
+            font-weight: 700;
+        }
+        .dark .tab-btn.active {
+            color: #4ade80;
+            border-bottom: 3px solid #4ade80;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1b4d3e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00796b;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans transition-colors duration-200 antialiased min-h-screen flex flex-col w-full">
+
+    <!-- TOP GOOGLE SITES STYLED HEADER -->
+    <header class="sticky top-0 z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border-b border-slate-200 dark:border-slate-800 shadow-sm w-full">
+        <div class="w-full px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo & Title -->
+                <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="switchSection('home')">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sunbird-green text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-md">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <span class="font-heading font-bold text-base sm:text-xl text-sunbird-green dark:text-emerald-400 block leading-tight">Sunbird Trust</span>
+                        <span class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:block">Career Pathways & Guidance Handbook</span>
+                    </div>
+                </div>
+
+                <!-- Global Quick Search -->
+                <div class="flex items-center flex-1 max-w-xs sm:max-w-md mx-2 sm:mx-8">
+                    <div class="relative w-full">
+                        <input type="text" id="globalSearchInput" onkeyup="handleGlobalSearch()" placeholder="Search exams, courses, scholarships..." 
+                            class="w-full pl-9 sm:pl-10 pr-3 sm:pr-4 py-1.5 sm:py-2 text-xs sm:text-sm bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-full focus:outline-none focus:ring-2 focus:ring-sunbird-green dark:focus:ring-emerald-500">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3 top-2 sm:top-2.5 text-slate-400 text-xs sm:text-sm"></i>
+                    </div>
+                </div>
+
+                <!-- Action Controls -->
+                <div class="flex items-center space-x-2 sm:space-x-3 shrink-0">
+                    <button onclick="toggleDarkMode()" class="p-2 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition" title="Toggle Theme">
+                        <i id="themeIcon" class="fa-solid fa-moon text-base sm:text-lg"></i>
+                    </button>
+                    <button onclick="window.print()" class="hidden md:inline-flex items-center space-x-1 px-3 py-1.5 text-xs font-semibold rounded-lg bg-sunbird-green text-white hover:bg-sunbird-teal transition shadow-sm">
+                        <i class="fa-solid fa-print"></i>
+                        <span>Print</span>
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">
+                        <i class="fa-solid fa-bars text-lg sm:text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Bar / Tabs (Google Site Navigation) - Horizontal Scrollable Row -->
+        <nav class="hidden lg:block bg-sunbird-green dark:bg-slate-950 text-white shadow-inner w-full">
+            <div class="w-full px-2 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto text-xs font-medium py-1.5 space-x-1 scrollbar-thin">
+                <button onclick="switchSection('home')" id="nav-home" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap bg-white/20 font-bold">Home</button>
+                <button onclick="switchSection('roadmap')" id="nav-roadmap" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Career Roadmap</button>
+                <button onclick="switchSection('entrance')" id="nav-entrance" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Entrance Exams</button>
+                <button onclick="switchSection('govt')" id="nav-govt" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Govt Recruitment</button>
+                <button onclick="switchSection('courses')" id="nav-courses" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Professional Courses</button>
+                <button onclick="switchSection('universities')" id="nav-universities" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Top Universities</button>
+                <button onclick="switchSection('scholarships')" id="nav-scholarships" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Scholarships & Colleges</button>
+                <button onclick="switchSection('careers')" id="nav-careers" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Career Profiles</button>
+                <button onclick="switchSection('skills')" id="nav-skills" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">Essential Skills</button>
+            </div>
+        </nav>
+
+        <!-- Mobile & Tablet Menu Drawer -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 text-white px-4 pt-2 pb-4 space-y-1.5 border-b border-slate-800 text-sm">
+            <button onclick="switchSection('home')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Home</button>
+            <button onclick="switchSection('roadmap')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Career Roadmap</button>
+            <button onclick="switchSection('entrance')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">National Entrance Exams</button>
+            <button onclick="switchSection('govt')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Govt Recruitment Exams</button>
+            <button onclick="switchSection('courses')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Professional Courses</button>
+            <button onclick="switchSection('universities')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Top Universities</button>
+            <button onclick="switchSection('scholarships')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Scholarships & Colleges</button>
+            <button onclick="switchSection('careers')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Career Profiles</button>
+            <button onclick="switchSection('skills')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">Essential Skills</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA - FLUID WIDTH -->
+    <main class="flex-grow w-full px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 sm:space-y-12">
+
+        <!-- GLOBAL SEARCH RESULTS OVERLAY (hidden by default) -->
+        <div id="searchResultsSection" class="hidden bg-white dark:bg-slate-800 p-4 sm:p-6 rounded-2xl shadow-xl border border-slate-200 dark:border-slate-700 w-full">
+            <div class="flex justify-between items-center mb-4 pb-2 border-b dark:border-slate-700">
+                <h3 class="text-lg sm:text-xl font-bold font-heading text-sunbird-green dark:text-emerald-400">Search Results</h3>
+                <button onclick="closeGlobalSearch()" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="searchResultsContainer" class="space-y-3 max-h-96 overflow-y-auto"></div>
+        </div>
+
+        <!-- ================= SECTION 1: HOME ================= -->
+        <section id="section-home" class="section-block space-y-8 w-full">
+            <!-- Hero Blackboard Canvas -->
+            <div class="chalk-border rounded-2xl blackboard-bg text-white p-5 sm:p-10 text-center relative overflow-hidden w-full">
+                <div class="relative z-10 w-full max-w-4xl mx-auto space-y-4 sm:space-y-6">
+                    <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] sm:text-xs font-semibold uppercase tracking-wider border border-emerald-400/30">
+                        Sunbird Trust Educational Initiative
+                    </span>
+                    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-tight text-white leading-tight">
+                        Career Guidance Handbook for Students
+                    </h1>
+                    <div class="quote-card p-3 sm:p-5 rounded-xl text-slate-800 dark:text-amber-100 w-full max-w-2xl mx-auto shadow-lg text-left relative">
+                        <i class="fa-solid fa-quote-left text-xl sm:text-2xl text-amber-600/40 dark:text-amber-400/30 absolute top-3 left-3"></i>
+                        <p class="italic font-serif text-xs sm:text-base pl-5 sm:pl-6 font-medium text-slate-900 dark:text-amber-100">
+                            "Education is the most powerful weapon which you can use to change the world."
+                        </p>
+                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-800 dark:text-amber-300 mt-2">— Nelson Mandela</p>
+                    </div>
+                    <p class="text-emerald-100/90 text-xs sm:text-base leading-relaxed max-w-3xl mx-auto">
+                        A practical reference roadmap designed for students from primary school to postgraduate level. Explore entrance examinations, government recruitments, professional degrees, scholarships, top universities, and career pathways.
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3 pt-2">
+                        <button onclick="switchSection('roadmap')" class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-sunbird-gold text-white text-xs sm:text-sm font-bold hover:bg-amber-600 transition shadow-lg flex items-center space-x-2">
+                            <i class="fa-solid fa-route"></i>
+                            <span>Explore Pathways</span>
+                        </button>
+                        <button onclick="switchSection('scholarships')" class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold border border-white/30 transition flex items-center space-x-2">
+                            <i class="fa-solid fa-hand-holding-dollar"></i>
+                            <span>Find Scholarships</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Planned Sections Quick Grid -->
+            <div class="w-full">
+                <h2 class="text-xl sm:text-2xl font-bold font-heading text-slate-900 dark:text-white mb-4 sm:mb-6 flex items-center space-x-3">
+                    <span class="w-3 h-7 sm:h-8 bg-sunbird-green rounded-full inline-block"></span>
+                    <span>Handbook Table of Contents</span>
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
+                    <div onclick="switchSection('roadmap')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-sunbird-green dark:text-emerald-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 1: Educational Roadmap</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Primary to PG stage levels, Class 10 & 12 stream selection choices.</p>
+                    </div>
+
+                    <div onclick="switchSection('entrance')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-900/50 text-blue-600 dark:text-blue-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-pen-ruler"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 2: Entrance Exams</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">JEE, NEET, CUET, CLAT, GATE, CAT, NIFT, NID, IAT, NEST & timelines.</p>
+                    </div>
+
+                    <div onclick="switchSection('govt')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-building-columns"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 3: Govt Recruitment</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">UPSC, SSC, Banking, Railways, NDA, CDS, AFCAT, CA & State PSCs.</p>
+                    </div>
+
+                    <div onclick="switchSection('courses')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-purple-100 dark:bg-purple-900/50 text-purple-600 dark:text-purple-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-user-graduate"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 4: Professional Courses</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">B.Tech, MBBS, Law, BBA, BDS, B.Arch, B.Des, Agriculture, BCA.</p>
+                    </div>
+
+                    <div onclick="switchSection('universities')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-teal-100 dark:bg-teal-900/50 text-teal-600 dark:text-teal-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-landmark"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 5: Top Universities</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">IITs, NITs, IISc, AIIMS, DU, JNU, BHU, NLUs, IIMs, NIFT.</p>
+                    </div>
+
+                    <div onclick="switchSection('scholarships')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-rose-100 dark:bg-rose-900/50 text-rose-600 dark:text-rose-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-hand-holding-hand"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 6 & 9: Scholarships</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">NSP, PM-YASASVI, AICTE, UGC, CSIR + 25+ College schemes (NE region focus).</p>
+                    </div>
+
+                    <div onclick="switchSection('careers')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-briefcase"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 7: Career Profiles</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Detailed profiles: Doctor, Software Engineer, IAS, CA, Lawyer, Scientist, etc.</p>
+                    </div>
+
+                    <div onclick="switchSection('skills')" class="p-5 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:shadow-xl hover:-translate-y-1 transition duration-200 cursor-pointer group">
+                        <div class="w-10 h-10 rounded-xl bg-orange-100 dark:bg-orange-900/50 text-orange-600 dark:text-orange-400 flex items-center justify-center text-xl mb-3 group-hover:scale-110 transition">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h3 class="font-bold text-base sm:text-lg text-slate-900 dark:text-white mb-1.5">Part 8: Essential Skills</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed">Communication, critical thinking, digital literacy, time mgmt & checklist.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Words of Wisdom Cards -->
+            <div class="space-y-4 w-full">
+                <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white">Words of Wisdom for Students</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                    <div class="quote-card p-4 sm:p-5 rounded-2xl shadow-sm">
+                        <p class="italic text-xs sm:text-sm text-slate-800 dark:text-amber-100">"The beautiful thing about learning is that no one can take it away from you."</p>
+                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 mt-2">— B.B. King</p>
+                    </div>
+                    <div class="quote-card p-4 sm:p-5 rounded-2xl shadow-sm">
+                        <p class="italic text-xs sm:text-sm text-slate-800 dark:text-amber-100">"There are no secrets to success. It is the result of preparation, hard work, and learning from failure."</p>
+                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 mt-2">— Colin Powell</p>
+                    </div>
+                    <div class="quote-card p-4 sm:p-5 rounded-2xl shadow-sm">
+                        <p class="italic text-xs sm:text-sm text-slate-800 dark:text-amber-100">"Knowledge is power. Information is liberating. Education is the premise of progress."</p>
+                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 mt-2">— Kofi Annan</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 2: ROADMAP ================= -->
+        <section id="section-roadmap" class="section-block hidden space-y-8 w-full">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 1: Educational Stage Roadmap</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">From primary school to postgraduate studies — key focus areas and next steps.</p>
+            </div>
+
+            <!-- Stage Level Table -->
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 overflow-hidden w-full">
+                <div class="p-4 sm:p-6 bg-sunbird-green text-white">
+                    <h3 class="text-lg sm:text-xl font-bold font-heading">Stage Levels Overview</h3>
+                </div>
+                <div class="overflow-x-auto w-full">
+                    <table class="w-full text-left text-xs sm:text-sm min-w-[600px]">
+                        <thead class="bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 uppercase text-[11px] font-bold border-b dark:border-slate-700">
+                            <tr>
+                                <th class="p-3 sm:p-4">Stage</th>
+                                <th class="p-3 sm:p-4">Level</th>
+                                <th class="p-3 sm:p-4">Focus</th>
+                                <th class="p-3 sm:p-4">Next Step</th>
+                                <th class="p-3 sm:p-4">Examples / Activities</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-700 font-medium">
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                                <td class="p-3 sm:p-4 font-bold text-sunbird-green dark:text-emerald-400">Primary</td>
+                                <td class="p-3 sm:p-4">Grades 1-5</td>
+                                <td class="p-3 sm:p-4"><span class="px-2.5 py-0.5 rounded-full text-[11px] bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-300">Foundation</span></td>
+                                <td class="p-3 sm:p-4">Middle School</td>
+                                <td class="p-3 sm:p-4 text-slate-600 dark:text-slate-400">Reading, numeracy, creativity</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                                <td class="p-3 sm:p-4 font-bold text-sunbird-green dark:text-emerald-400">Middle</td>
+                                <td class="p-3 sm:p-4">Grades 6-8</td>
+                                <td class="p-3 sm:p-4"><span class="px-2.5 py-0.5 rounded-full text-[11px] bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">Explore Interests</span></td>
+                                <td class="p-3 sm:p-4">Secondary</td>
+                                <td class="p-3 sm:p-4 text-slate-600 dark:text-slate-400">Olympiads, coding, sports</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                                <td class="p-3 sm:p-4 font-bold text-sunbird-green dark:text-emerald-400">Secondary</td>
+                                <td class="p-3 sm:p-4">Grades 9-10</td>
+                                <td class="p-3 sm:p-4"><span class="px-2.5 py-0.5 rounded-full text-[11px] bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">Choose Stream</span></td>
+                                <td class="p-3 sm:p-4">Class XI / XII / Diploma / ITI</td>
+                                <td class="p-3 sm:p-4 text-slate-600 dark:text-slate-400">Board exams preparation</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                                <td class="p-3 sm:p-4 font-bold text-sunbird-green dark:text-emerald-400">Higher Secondary</td>
+                                <td class="p-3 sm:p-4">Grades 11-12</td>
+                                <td class="p-3 sm:p-4"><span class="px-2.5 py-0.5 rounded-full text-[11px] bg-purple-100 text-purple-800 dark:bg-purple-900/50 dark:text-purple-300">Career Direction</span></td>
+                                <td class="p-3 sm:p-4">College / University</td>
+                                <td class="p-3 sm:p-4 text-slate-600 dark:text-slate-400">Entrance exams (JEE, NEET, CUET, CLAT)</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                                <td class="p-3 sm:p-4 font-bold text-sunbird-green dark:text-emerald-400">Undergraduate</td>
+                                <td class="p-3 sm:p-4">Bachelor's Degree</td>
+                                <td class="p-3 sm:p-4"><span class="px-2.5 py-0.5 rounded-full text-[11px] bg-indigo-100 text-indigo-800 dark:bg-indigo-900/50 dark:text-indigo-300">Specialization</span></td>
+                                <td class="p-3 sm:p-4">Postgraduate / Jobs</td>
+                                <td class="p-3 sm:p-4 text-slate-600 dark:text-slate-400">Internships, research, campus recruitment</td>
+                            </tr>
+                            <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                                <td class="p-3 sm:p-4 font-bold text-sunbird-green dark:text-emerald-400">Postgraduate</td>
+                                <td class="p-3 sm:p-4">Master's Degree</td>
+                                <td class="p-3 sm:p-4"><span class="px-2.5 py-0.5 rounded-full text-[11px] bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300">Advanced Study</span></td>
+                                <td class="p-3 sm:p-4">Research / Jobs / Academia</td>
+                                <td class="p-3 sm:p-4 text-slate-600 dark:text-slate-400">NET, GATE, PhD admissions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Stream Choices Split Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
+                <!-- After Class 10 Options -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sunbird-green text-white flex items-center justify-center text-base sm:text-lg font-bold">10</div>
+                        <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white">Pathways After Class 10</h3>
+                    </div>
+                    <ul class="space-y-2 text-xs sm:text-sm font-medium">
+                        <li class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-3">
+                            <i class="fa-solid fa-atom text-blue-500"></i>
+                            <span><strong>Science Stream:</strong> PCM (Engineering/Pure Sciences) or PCB (Medical/Allied Health)</span>
+                        </li>
+                        <li class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-3">
+                            <i class="fa-solid fa-chart-line text-emerald-500"></i>
+                            <span><strong>Commerce Stream:</strong> Accountancy, Business Studies, Economics, Mathematics/IP</span>
+                        </li>
+                        <li class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-3">
+                            <i class="fa-solid fa-landmark text-amber-500"></i>
+                            <span><strong>Arts / Humanities:</strong> History, Pol Science, Psychology, Sociology, Languages</span>
+                        </li>
+                        <li class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-3">
+                            <i class="fa-solid fa-gears text-purple-500"></i>
+                            <span><strong>Polytechnic Diploma:</strong> 3-year technical diplomas in Civil, Mechanical, CS, Electrical</span>
+                        </li>
+                        <li class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-3">
+                            <i class="fa-solid fa-wrench text-rose-500"></i>
+                            <span><strong>ITI & Vocational:</strong> Electrician, Fitter, Welder, Fashion Design, Hospitality trades</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- After Class 12 Options -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-4">
+                    <div class="flex items-center space-x-3">
+                        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-sunbird-gold text-white flex items-center justify-center text-base sm:text-lg font-bold">12</div>
+                        <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white">Pathways After Class 12</h3>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2 text-xs font-semibold">
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-laptop-code text-blue-500"></i><span>Engineering & Tech</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-user-doctor text-red-500"></i><span>Medical & Allied Health</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-scale-balanced text-amber-500"></i><span>Law (Integrated 5-Yr)</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-briefcase text-emerald-500"></i><span>Commerce & Mgmt (BBA)</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-palette text-purple-500"></i><span>Design & Architecture</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-hotel text-indigo-500"></i><span>Hotel Management</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-shield-halved text-rose-500"></i><span>Defence Services (NDA)</span>
+                        </div>
+                        <div class="p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl flex items-center space-x-2">
+                            <i class="fa-solid fa-flask text-teal-500"></i><span>Pure & Basic Sciences</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 3: ENTRANCE EXAMS ================= -->
+        <section id="section-entrance" class="section-block hidden space-y-6 w-full">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 2: National Entrance Examinations</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Conducted by NTA, IITs, NLUs, and statutory bodies for higher education admissions.</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                    <button onclick="filterExams('all')" class="exam-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-sunbird-green text-white">All Exams</button>
+                    <button onclick="filterExams('Engineering')" class="exam-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Engineering</button>
+                    <button onclick="filterExams('Medical')" class="exam-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Medical</button>
+                    <button onclick="filterExams('Law')" class="exam-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Law</button>
+                    <button onclick="filterExams('Management')" class="exam-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Management</button>
+                    <button onclick="filterExams('Design')" class="exam-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Design</button>
+                    <button onclick="filterExams('Science')" class="exam-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Sciences</button>
+                </div>
+            </div>
+
+            <div id="entranceExamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
+        </section>
+
+        <!-- ================= SECTION 4: GOVT RECRUITMENT ================= -->
+        <section id="section-govt" class="section-block hidden space-y-6 w-full">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 3: Government Recruitment Examinations</h2>
+                    <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Opportunities to join Central, State, Defence, Banking, and Railway services.</p>
+                </div>
+                <div class="flex flex-wrap gap-1.5 sm:gap-2">
+                    <button onclick="filterGovtExams('all')" class="govt-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-sunbird-green text-white">All Recruitments</button>
+                    <button onclick="filterGovtExams('UPSC')" class="govt-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">UPSC</button>
+                    <button onclick="filterGovtExams('SSC')" class="govt-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">SSC</button>
+                    <button onclick="filterGovtExams('Banking')" class="govt-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Banking / RBI</button>
+                    <button onclick="filterGovtExams('Railways')" class="govt-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Railways (RRB)</button>
+                    <button onclick="filterGovtExams('Defence')" class="govt-filter-btn px-2.5 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Defence (NDA/CDS)</button>
+                </div>
+            </div>
+
+            <div id="govtExamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
+        </section>
+
+        <!-- ================= SECTION 5: PROFESSIONAL COURSES ================= -->
+        <section id="section-courses" class="section-block hidden space-y-8 w-full">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 4: Professional Courses in India</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Detailed overview of major professional degrees available after Class 12.</p>
+            </div>
+
+            <div id="professionalCoursesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"></div>
+
+            <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 p-4 sm:p-6 space-y-4 w-full">
+                <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white">Other Key Professional Courses</h3>
+                <div class="overflow-x-auto w-full">
+                    <table class="w-full text-left text-xs sm:text-sm min-w-[500px]">
+                        <thead class="bg-slate-100 dark:bg-slate-900/50 text-slate-700 dark:text-slate-300 font-bold">
+                            <tr>
+                                <th class="p-3">Course</th>
+                                <th class="p-3">Duration</th>
+                                <th class="p-3">Major Entrance Exam</th>
+                                <th class="p-3">Career Areas</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-200 dark:divide-slate-700 font-medium">
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">BDS</td><td class="p-3">5 years</td><td class="p-3">NEET UG</td><td class="p-3">Dentistry</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">BAMS</td><td class="p-3">5.5 years</td><td class="p-3">NEET UG</td><td class="p-3">Ayurveda</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">BHMS</td><td class="p-3">5.5 years</td><td class="p-3">NEET UG</td><td class="p-3">Homeopathy</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">B.Sc. Nursing</td><td class="p-3">4 years</td><td class="p-3">NEET / State CET</td><td class="p-3">Healthcare & Nursing</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">B.Pharm</td><td class="p-3">4 years</td><td class="p-3">State CET / CUET</td><td class="p-3">Pharmaceutical Industry</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">B.Arch</td><td class="p-3">5 years</td><td class="p-3">NATA / JEE Paper 2</td><td class="p-3">Architecture & Planning</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">B.Des</td><td class="p-3">4 years</td><td class="p-3">UCEED / NID DAT</td><td class="p-3">Industrial, UI/UX, Fashion Design</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">BHM</td><td class="p-3">4 years</td><td class="p-3">NCHM JEE</td><td class="p-3">Hospitality & Hotel Operations</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">B.Sc. Agriculture</td><td class="p-3">4 years</td><td class="p-3">ICAR / State CET</td><td class="p-3">Agriculture Science & Farming Tech</td></tr>
+                            <tr><td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">BCA</td><td class="p-3">3-4 years</td><td class="p-3">CUET / University Exam</td><td class="p-3">IT & Software Development</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 6: TOP UNIVERSITIES ================= -->
+        <section id="section-universities" class="section-block hidden space-y-6 w-full">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 5: Top Universities in India</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Expanded reference guide to premier educational institutes in India.</p>
+            </div>
+
+            <div id="universitiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
+        </section>
+
+        <!-- ================= SECTION 7: SCHOLARSHIPS & COLLEGES ================= -->
+        <section id="section-scholarships" class="section-block hidden space-y-8 w-full">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 6 & 9: Scholarships & Colleges Directory</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">National financial aid schemes and comprehensive list of colleges with scholarships (special focus on North-East India).</p>
+            </div>
+
+            <div class="flex space-x-4 border-b border-slate-200 dark:border-slate-700">
+                <button onclick="switchScholarshipTab('central')" id="tab-schol-central" class="tab-btn active pb-2 px-2 text-xs sm:text-sm">Central & State Schemes</button>
+                <button onclick="switchScholarshipTab('colleges')" id="tab-schol-colleges" class="tab-btn pb-2 px-2 text-xs sm:text-sm">Colleges with Scholarships (25+)</button>
+            </div>
+
+            <div id="schol-central-view" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full"></div>
+
+            <div id="schol-colleges-view" class="hidden space-y-4 w-full">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                    <input type="text" id="collegeScholSearch" onkeyup="filterCollegesTable()" placeholder="Search college, location, or stream..." class="px-3.5 py-2 text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl w-full sm:w-72">
+                    <span class="text-xs text-slate-500">Showing 24+ Top Scholarship Institutions</span>
+                </div>
+                <div class="bg-white dark:bg-slate-800 rounded-2xl shadow-md border border-slate-200 dark:border-slate-700 overflow-hidden w-full">
+                    <div class="overflow-x-auto w-full">
+                        <table id="collegesTable" class="w-full text-left text-xs sm:text-sm min-w-[650px]">
+                            <thead class="bg-sunbird-green text-white font-bold">
+                                <tr>
+                                    <th class="p-3">College / University</th>
+                                    <th class="p-3">Streams Covered</th>
+                                    <th class="p-3">Type of Scholarship</th>
+                                    <th class="p-3">Coverage / Notes</th>
+                                    <th class="p-3">Location</th>
+                                </tr>
+                            </thead>
+                            <tbody id="collegesTableBody" class="divide-y divide-slate-200 dark:divide-slate-700 font-medium"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SECTION 8: CAREER PROFILES ================= -->
+        <section id="section-careers" class="section-block hidden space-y-6 w-full">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 7: Career Profiles & Planning</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Detailed profiles summarizing educational pathways, skills, sectors, and salary ranges.</p>
+            </div>
+
+            <div id="careerProfilesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full"></div>
+        </section>
+
+        <!-- ================= SECTION 9: ESSENTIAL SKILLS ================= -->
+        <section id="section-skills" class="section-block hidden space-y-8 w-full">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
+                <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 8: Essential Skills for Success</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Transferable skills vital for academic performance, entrance exams, and future careers.</p>
+            </div>
+
+            <div id="skillsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
+
+            <div class="bg-white dark:bg-slate-800 rounded-2xl p-4 sm:p-6 shadow-lg border border-slate-200 dark:border-slate-700 space-y-4 w-full">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
+                        <i class="fa-solid fa-list-check text-sunbird-green dark:text-emerald-400"></i>
+                        <span>Student Skill Development Checklist</span>
+                    </h3>
+                    <span id="checklistProgress" class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300">0% Completed</span>
+                </div>
+                <div class="w-full bg-slate-200 dark:bg-slate-700 h-2 rounded-full overflow-hidden">
+                    <div id="checklistProgressBar" class="bg-sunbird-green h-full w-0 transition-all duration-300"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 pt-2 text-xs sm:text-sm font-medium" id="checklistItemsContainer">
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="w-4 h-4 text-sunbird-green rounded focus:ring-emerald-500">
+                        <span>Read at least one non-textbook book every month</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="w-4 h-4 text-sunbird-green rounded focus:ring-emerald-500">
+                        <span>Improve typing and basic computer skills</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="w-4 h-4 text-sunbird-green rounded focus:ring-emerald-500">
+                        <span>Participate in quizzes, Olympiads, and competitions</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="w-4 h-4 text-sunbird-green rounded focus:ring-emerald-500">
+                        <span>Build a portfolio of projects and extracurricular achievements</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="w-4 h-4 text-sunbird-green rounded focus:ring-emerald-500">
+                        <span>Develop spoken & written communication in English and native language</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="w-4 h-4 text-sunbird-green rounded focus:ring-emerald-500">
+                        <span>Volunteer in community service or school club activities</span>
+                    </label>
+                    <label class="flex items-center space-x-3 p-3 bg-slate-50 dark:bg-slate-700/40 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                        <input type="checkbox" onchange="updateChecklist()" class="w-4 h-4 text-sunbird-green rounded focus:ring-emerald-500">
+                        <span>Stay updated with technology trends and daily current affairs</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 text-xs py-6 sm:py-8 border-t border-slate-800 mt-12 w-full">
+        <div class="w-full px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <div class="flex items-center space-x-3">
+                <div class="w-7 h-7 rounded-full bg-sunbird-green text-white flex items-center justify-center font-bold text-xs">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <span class="font-bold text-white text-sm">Sunbird Trust Guidance Handbook</span>
+            </div>
+            <p class="text-center md:text-left">© 2026 Sunbird Trust. Designed as a comprehensive practical reference for students in India.</p>
+            <div class="flex space-x-4">
+                <a href="https://sites.google.com/sunbirdtrust.com/paths/home" target="_blank" class="hover:text-emerald-400 transition">Official Sunbird Site <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT DATA & INTERACTION CODE -->
+    <script>
+        // IFRAME HEIGHT AUTOMATION FOR GOOGLE SITES
+        function sendHeightToParent() {
+            const height = document.documentElement.scrollHeight || document.body.scrollHeight;
+            window.parent.postMessage({ frameHeight: height }, '*');
+        }
+        window.addEventListener('load', sendHeightToParent);
+        window.addEventListener('resize', sendHeightToParent);
+
+        const entranceExamsData = [
+            { name: "JEE Main", category: "Engineering", authority: "National Testing Agency (NTA)", purpose: "Admission to NITs, IIITs, GFTIs; eligibility for JEE Advanced", eligibility: "Class XII with PCM", courses: "B.E. / B.Tech / B.Arch / B.Planning", frequency: "2 times a year (Session 1 & Session 2)", timeline: "Session 1: Oct-Nov App, Jan Exam. Session 2: Jan-Feb App, Apr Exam", tip: "Refer to official syllabus, NCERTs, past year papers & mock tests.", website: "https://jeemain.nta.nic.in" },
+            { name: "JEE Advanced", category: "Engineering", authority: "One of the IITs", purpose: "Admission to 23 Indian Institutes of Technology (IITs)", eligibility: "Qualified JEE Main top cutoff", courses: "B.Tech / Dual Degree / BS", frequency: "Once a year", timeline: "Registration: April-May | Exam: May | JoSAA Counselling: June", tip: "Focus on in-depth concept clarity, analytical problem solving.", website: "https://jeeadv.ac.in" },
+            { name: "NEET UG", category: "Medical", authority: "National Testing Agency (NTA)", purpose: "Admission to MBBS, BDS, BAMS, BHMS, BUMS, BSMS", eligibility: "Class XII with Physics, Chemistry, Biology (PCB)", courses: "Medical & Allied Health Sciences", frequency: "Once a year", timeline: "Application: Feb-March | Exam: May | Counselling: June-October", tip: "Master NCERT Biology line-by-line, solve past 15-year papers.", website: "https://neet.nta.nic.in" },
+            { name: "CUET UG", category: "Management", authority: "National Testing Agency (NTA)", purpose: "Admission to UG programmes across Central & participating Universities", eligibility: "Class XII (Any Stream)", courses: "BA, B.Sc, B.Com, BBA, BCA, etc.", frequency: "Once a year", timeline: "Application: Jan-April | Exam: May-June | Counselling: July-Aug", tip: "Revise NCERT Class 12 domain subjects and general test syllabus.", website: "https://cuetug.nta.online" },
+            { name: "CUET PG", category: "Management", authority: "National Testing Agency (NTA)", purpose: "Admission to Master's & PG Diploma programmes", eligibility: "Bachelor's Degree in relevant field", courses: "MA, M.Sc, M.Com, PG Diplomas", frequency: "Once a year", timeline: "Application: Dec-Jan | Exam: March | Counselling: April-July", tip: "Thoroughly revise undergraduate domain fundamentals.", website: "https://pgcuet.samarth.ac.in" },
+            { name: "CLAT (UG / PG)", category: "Law", authority: "Consortium of National Law Universities", purpose: "Admission to 24+ National Law Universities (NLUs)", eligibility: "Class XII (UG) / Bachelor of Laws (PG)", courses: "BA LL.B. (Hons), BBA LL.B., LL.M.", frequency: "Once a year", timeline: "Application: August-October | Exam: December", tip: "Focus heavily on reading speed, critical reasoning & legal aptitude.", website: "https://consortiumofnlus.ac.in" },
+            { name: "AILET", category: "Law", authority: "National Law University Delhi", purpose: "Exclusive admission to NLU Delhi", eligibility: "Class XII / Graduate", courses: "BA LL.B. (Hons), LL.M., PhD", frequency: "Once a year", timeline: "Application: Sept-Oct | Exam: December", tip: "Practice English comprehension and logical reasoning mock tests.", website: "https://nludelhi.ac.in" },
+            { name: "GATE", category: "Engineering", authority: "IISc & IITs", purpose: "M.Tech / PhD admissions and PSU Officer recruitment", eligibility: "Engineering or Science Graduates", courses: "M.Tech, MS, PhD", frequency: "Once a year", timeline: "Application: Aug-Sept | Exam: February | Result: March", tip: "Solve past 20 years GATE question papers subject-wise.", website: "https://gate2026.iitkgp.ac.in" },
+            { name: "CAT", category: "Management", authority: "Indian Institutes of Management (IIMs)", purpose: "MBA / PGDM admissions in IIMs & top B-schools", eligibility: "Bachelor's Degree (Min 50%)", courses: "MBA / PGDM", frequency: "Once a year", timeline: "Application: Aug-Sept | Exam: Last Sunday of Nov | Result: Jan", tip: "Practice VARC speed reading, DILR puzzles, and Quant shortcuts.", website: "https://iimcat.ac.in" },
+            { name: "NIFT Entrance", category: "Design", authority: "National Testing Agency (NTA)", purpose: "Admission to NIFT campuses nationwide", eligibility: "Class XII", courses: "B.Des / B.FTech", frequency: "Once a year", timeline: "App: Dec-Jan | Stage 1 Exam: Feb | Situation Test: April", tip: "Practice creative drawing, material handling, and general awareness.", website: "https://nift.nta.online" },
+            { name: "NID DAT", category: "Design", authority: "National Institute of Design", purpose: "B.Des & M.Des admission at NID institutes", eligibility: "Class XII / Bachelor's", courses: "B.Des / M.Des", frequency: "Once a Year (Prelims & Mains)", timeline: "App: Sept-Oct | Prelims Exam: Dec-Jan", tip: "Enhance visual thinking, sketch proportion, and storyboarding.", website: "https://admissions.nid.edu" },
+            { name: "IISER Aptitude Test (IAT)", category: "Science", authority: "IISERs", purpose: "Admissions to 5-Year BS-MS Dual Degree at IISERs & IISc", eligibility: "Class XII with Science Stream", courses: "BS-MS / BS Research in Physics, Chem, Bio, Math", frequency: "Once a year", timeline: "App: March-April | Exam: May-June | Result: July", tip: "Track alongside JEE/NEET; covers PCMB equal weightage.", website: "https://iiseradmission.in" },
+            { name: "NEST", category: "Science", authority: "NISER Bhubaneswar & UM-DAE CEBS Mumbai", purpose: "Admission to 5-Year Integrated M.Sc.", eligibility: "Class XII with PCM/PCB", courses: "Integrated M.Sc. in Basic Sciences", frequency: "Once a year", timeline: "App: Jan-April | Exam: June | Result: July", tip: "Focus on conceptual clarity in core science subjects.", website: "https://nestexam.in" }
+        ];
+
+        const govtExamsData = [
+            { name: "UPSC Civil Services Exam (CSE)", category: "UPSC", authority: "UPSC", purpose: "Recruitment to IAS, IPS, IFS, IRS and Group A/B Services", eligibility: "Graduate in any discipline", selection: "Prelims (CSAT) -> Mains (Written) -> Interview", timeline: "App: Jan-Feb | Prelims: May | Mains: August", website: "https://upsc.gov.in" },
+            { name: "SSC CGL", category: "SSC", authority: "Staff Selection Commission", purpose: "Group B & C Officers in Central Ministries & Depts", eligibility: "Graduate", selection: "Tier I (CBT) -> Tier II (CBT)", timeline: "App: March-May | Tier 1: June-Sept", website: "https://ssc.gov.in" },
+            { name: "SSC CHSL", category: "SSC", authority: "Staff Selection Commission", purpose: "LDC, DEO, Postal Assistant, Sorting Assistant", eligibility: "Class XII Pass", selection: "Tier I CBT -> Tier II CBT & Skill Test", timeline: "App: April-May | Exam: July-Sept", website: "https://ssc.gov.in" },
+            { name: "IBPS PO / Clerk", category: "Banking", authority: "IBPS", purpose: "Probationary Officers & Clerks in Public Sector Banks", eligibility: "Graduate", selection: "Prelims -> Mains -> Interview (for PO)", timeline: "App: June-August | Prelims: Aug-Oct", website: "https://ibps.in" },
+            { name: "RBI Grade B Officer", category: "Banking", authority: "Reserve Bank of India", purpose: "Direct Recruit Grade B Officers in RBI", eligibility: "Graduate (Min 60%)", selection: "Phase I -> Phase II -> Interview", timeline: "App: April-Sept | Phase 1: June-Oct", website: "https://rbi.org.in" },
+            { name: "NDA & NA Examination", category: "Defence", authority: "UPSC", purpose: "Commissioned Officers in Army, Navy & Air Force", eligibility: "Class 12 (Army: Any Stream | Air Force/Navy: PCM)", selection: "Written Exam -> 5-Day SSB Interview -> Medical", timeline: "NDA I: App Dec, Exam April | NDA II: App May, Exam Sept", website: "https://upsc.gov.in" },
+            { name: "CDS Examination", category: "Defence", authority: "UPSC", purpose: "Commissioned Officers in IMA, OTA, INA, AFA", eligibility: "Graduate (IMA/OTA: Any Degree | INA/AFA: Engg/PCM)", selection: "Written Exam -> SSB Interview -> Medical", timeline: "CDS I: App Dec, Exam April | CDS II: App May, Exam Sept", website: "https://upsc.gov.in" },
+            { name: "RRB NTPC & ALP", category: "Railways", authority: "Railway Recruitment Board", purpose: "Non-Technical Popular Categories & Assistant Loco Pilot", eligibility: "Class X / XII / Diploma / ITI / Graduate", selection: "CBT 1 -> CBT 2 -> Skill Test / CBAT", timeline: "Vacancy based cycle", website: "https://rrbapply.gov.in" },
+            { name: "Chartered Accountant (CA)", category: "Banking", authority: "ICAI", purpose: "Professional Certification in Auditing & Finance", eligibility: "Class XII", selection: "CA Foundation -> Intermediate -> 2-Yr Articleship -> Final", timeline: "Exams held 3 times a year (Jan, May, Sept)", website: "https://icai.org" }
+        ];
+
+        const professionalCoursesData = [
+            { name: "Bachelor of Technology (B.Tech / B.E.)", duration: "4 Years", eligibility: "Class XII with PCM", admission: "JEE Main, JEE Advanced, State CETs", subjects: "Programming, Math, Engineering Physics, Electronics, Branch Core", careers: "Software Engineer, Civil/Mech/Elec Engineer, Data Scientist, PSU Officer", higher: "M.Tech, MBA, MS, PhD", institutes: "IITs, NITs, IIITs, BITS, State Engineering Colleges" },
+            { name: "MBBS (Bachelor of Medicine & Surgery)", duration: "5.5 Years (incl. 1 year internship)", eligibility: "Class XII with PCB", admission: "NEET UG", subjects: "Anatomy, Physiology, Biochemistry, Pharmacology, Surgery, Medicine", careers: "Doctor, Surgeon, Medical Officer, Clinical Researcher", higher: "MD, MS, DM, MCh", institutes: "AIIMS, JIPMER, Govt & Private Medical Colleges" },
+            { name: "Integrated Law (BA LL.B. / BBA LL.B.)", duration: "5 Years", eligibility: "Class XII (Any Stream)", admission: "CLAT, AILET, SLAT, LSAT", subjects: "Constitutional Law, Criminal Law, Corporate Law, Civil Procedure", careers: "Advocate, Corporate Counsel, Legal Advisor, Judicial Service Officer", higher: "LL.M., PhD", institutes: "National Law Universities (NLUs), Campus Law Centre DU" },
+            { name: "Bachelor of Business Administration (BBA)", duration: "3-4 Years", eligibility: "Class XII (Any Stream)", admission: "CUET, IPMAT, University Tests", subjects: "Principles of Management, Marketing, Finance, HR, Economics", careers: "Management Trainee, Business Analyst, HR Associate, Entrepreneur", higher: "MBA, PGDM", institutes: "IIM Indore/Rohtak (IPM), Shaheed Sukhdev (DU), Christ Univ" }
+        ];
+
+        const topUniversitiesData = [
+            { name: "Indian Institutes of Technology (IITs)", discipline: "Engineering & Tech", admission: "JEE Advanced", programmes: "B.Tech, M.Tech, M.Sc, PhD", why: "World-renowned engineering education, cutting-edge research & stellar global placements." },
+            { name: "National Institutes of Technology (NITs)", discipline: "Engineering", admission: "JEE Main", programmes: "B.Tech, M.Tech, MCA", why: "Premier government engineering institutes present across all Indian states." },
+            { name: "Indian Institute of Science (IISc), Bengaluru", discipline: "Science & Research", admission: "JEE Main/Adv, GATE, JAM", programmes: "B.S. (Research), M.Tech, PhD", why: "India's highest ranked university dedicated to advanced scientific research." },
+            { name: "All India Institute of Medical Sciences (AIIMS)", discipline: "Medical", admission: "NEET UG / INI-CET", programmes: "MBBS, MD, MS, M.Ch", why: "India's apex medical institution providing subsidized top-tier medical education." },
+            { name: "University of Delhi (DU)", discipline: "Arts, Science, Commerce", admission: "CUET UG / PG", programmes: "BA (Hons), B.Com (Hons), B.Sc", why: "Historic university housing top colleges like SRCC, St. Stephen's, Hindu, Miranda." },
+            { name: "National Law Universities (NLUs)", discipline: "Law", admission: "CLAT / AILET", programmes: "BA LL.B (Hons), LL.M", why: "Premier specialized institutions for legal education and corporate placement." }
+        ];
+
+        const centralScholarshipsData = [
+            { name: "National Scholarship Portal (NSP)", level: "School, UG, PG", purpose: "Single Unified Portal for all Central Govt schemes (Pre-Matric, Post-Matric, Merit)", benefits: "Tuition support, maintenance allowance, annual stipend", apply: "Online via scholarships.gov.in" },
+            { name: "Central Sector Scheme of Scholarships", level: "Undergraduate", purpose: "For top 80,000 meritorious Class XII students pursuing regular degree courses", benefits: "₹12,000/yr for UG (first 3 yrs), ₹20,000/yr for PG", apply: "NSP Portal" },
+            { name: "INSPIRE Scholarship (DST)", level: "UG / PG Science", purpose: "Top 1% Class 12 students pursuing Natural & Basic Sciences (B.Sc / M.Sc)", benefits: "₹80,000 per year (₹60,000 cash + ₹20,000 research mentorship)", apply: "online-inspire.gov.in" },
+            { name: "PM-YASASVI Scholarship", level: "School / UG", purpose: "Support for meritorious OBC, EBC, and DNT students", benefits: "Tuition assistance & school fee waivers up to ₹1.25 Lakh/yr", apply: "NSP / NTA Portal" },
+            { name: "AICTE Pragati Scholarship for Girls", level: "Diploma / Degree", purpose: "Empowering eligible girl students admitted in AICTE technical courses", benefits: "₹50,000 per annum for duration of course", apply: "NSP / AICTE Portal" },
+            { name: "AICTE Saksham for Specially-Abled", level: "Diploma / Degree", purpose: "Support for specially-abled students (disability >= 40%) in technical courses", benefits: "₹50,000 per annum", apply: "NSP Portal" }
+        ];
+
+        const collegesScholarshipsData = [
+            { college: "Azim Premji University", streams: "Arts, Science, Commerce, Development Studies", type: "Need-based Financial Aid", coverage: "Tuition + accommodation support (MA: 50%-100% waiver)", location: "Bengaluru, Karnataka" },
+            { college: "Azim Premji Foundation External", streams: "Any UG Degree", type: "Annual Stipend Program", coverage: "₹30,000 per year for Govt school alumni", location: "All India (18 states)" },
+            { college: "Tata Institute of Social Sciences (TISS)", streams: "Humanities / Social Work", type: "Need-Based Financial Aid", coverage: "Up to ₹33,000 per semester for eligible students", location: "Mumbai, Hyderabad, Tuljapur, Guwahati" },
+            { college: "GIMT (Girijananda Chowdhury Inst)", streams: "Engineering, Pharmacy", type: "Merit & Govt Scholarships", coverage: "Up to 90% tuition waiver + ST/SC/OBC stipends", location: "Tezpur / Guwahati, Assam" },
+            { college: "Synod College", streams: "Arts, Science, Commerce", type: "College Award & Merit", coverage: "Merit awards & special aid for differently-abled", location: "Shillong, Meghalaya" },
+            { college: "St Claret College", streams: "Arts, Commerce", type: "External & Merit", coverage: "Foundation aid + APST State stipend + UGC", location: "Ziro, Arunachal Pradesh" },
+            { college: "IIT Guwahati", streams: "Engineering, Science", type: "Merit & Need-Based", coverage: "Central Govt schemes + MCM Institute Aid", location: "Guwahati, Assam" },
+            { college: "North Eastern Hill University (NEHU)", streams: "Arts, Science, Commerce", type: "Central University Aid", coverage: "Tuition support & merit awards via Central schemes", location: "Shillong, Meghalaya" },
+            { college: "Tezpur University", streams: "Multidisciplinary", type: "Govt & Merit Awards", coverage: "Scholarships via Central & State programs", location: "Tezpur, Assam" },
+            { college: "Assam Don Bosco University", streams: "All Streams", type: "Merit & Need", coverage: "Partial to full tuition support based on profile", location: "Guwahati, Assam" },
+            { college: "Manipur University", streams: "All Streams", type: "Govt + Merit Aid", coverage: "Aid via Ministry of Education & State schemes", location: "Imphal, Manipur" },
+            { college: "Nagaland University", streams: "All Streams", type: "Central Schemes", coverage: "Stipends through UGC & State Govt schemes", location: "Kohima / Dimapur, Nagaland" },
+            { college: "Royal Global University", streams: "Engg, Arts, Commerce, Law", type: "Merit & Need", coverage: "Scholarship up to 100% based on academic score", location: "Guwahati, Assam" },
+            { college: "Presidency University", streams: "All UG Disciplines", type: "Institutional Merit", coverage: "Tuition waivers based on XII percentage", location: "Bengaluru, Karnataka" },
+            { college: "B.M.S. College of Engineering", streams: "Engineering", type: "Merit & Trust Aid", coverage: "Govt ST/SC aid + Trust merit scholarships", location: "Bangalore, Karnataka" },
+            { college: "Lovely Professional University (LPU)", streams: "All Streams", type: "LPUNEST Merit", coverage: "Up to 50%-100% tuition support based on score", location: "Jalandhar, Punjab" },
+            { college: "Amity University", streams: "All Streams", type: "Merit Scholarship", coverage: "25% to 100% tuition fee waivers", location: "Across India (Noida/Kolkata/etc)" },
+            { college: "SRM Institute of Science & Tech", streams: "All Streams", type: "Founder's & Merit", coverage: "Up to 100% tuition fee waiver for top rankers", location: "Chennai, Tamil Nadu" },
+            { college: "VIT (Vellore Institute)", streams: "Engineering & Science", type: "STARS & Rank Aid", coverage: "Up to 100% waiver for rural toppers & rankers", location: "Vellore, Tamil Nadu" },
+            { college: "Ashoka University", streams: "Arts, Science, YIF Fellowship", type: "Need-Based Financial Aid", coverage: "Up to 100% tuition & residence coverage", location: "Sonipat, Haryana" },
+            { college: "Shiv Nadar University", streams: "MA Rural Mgmt / B.Tech", type: "100% Merit/Need Aid", coverage: "Full tuition waiver for eligible candidates", location: "Greater Noida / Delhi NCR" },
+            { college: "NavGurukul Eternal University", streams: "BCA (Girls only)", type: "100% Fully Sponsored", coverage: "Free residential software engineering training for girls", location: "Himachal Pradesh" },
+            { college: "St Ann College", streams: "Class 11-12, BA, B.Sc, B.Com", type: "Merit Base College Aid", coverage: "50% tuition waiver for meritorious female students", location: "Mangalore, Karnataka" },
+            { college: "St Agnes College", streams: "BA, B.Sc, B.Com", type: "Merit Base College Aid", coverage: "50% tuition waiver for deserving students", location: "Mangalore, Karnataka" }
+        ];
+
+        const careerProfilesData = [
+            { title: "Doctor / Surgeon", pathway: "PCB -> NEET UG -> MBBS -> 1-Yr Internship -> MD/MS", skills: "Biology, diagnostic clinical skills, empathy, communication", sectors: "Hospitals, private clinics, medical research, public health", salary: "₹6 – 30+ Lakh / Year", prospects: "High & steady demand nationwide" },
+            { title: "Software Engineer / Developer", pathway: "PCM -> B.Tech CS / BCA / B.Sc CS -> Internships", skills: "Data structures, programming (Python/Java/C++), problem solving", sectors: "IT MNCs, tech startups, fintech, product companies", salary: "₹4 – 50+ Lakh / Year", prospects: "Excellent global growth" },
+            { title: "Civil Servant (IAS / IPS / IFS)", pathway: "Graduation (Any discipline) -> UPSC Civil Services Exam", skills: "Public administration, decision making, leadership, analytical thinking", sectors: "Central & State Government Administration", salary: "As per Govt Pay Level 10+ (approx ₹70k - ₹2.5L/month + benefits)", prospects: "Prestigious service with nationwide impact" },
+            { title: "Chartered Accountant (CA)", pathway: "Class 12 -> CA Foundation -> Inter -> Articleship -> Final", skills: "Financial accounting, auditing, corporate taxation, law", sectors: "Audit firms, corporate finance, banking, self-practice", salary: "₹6 – 40+ Lakh / Year", prospects: "High demand across all corporate sectors" },
+            { title: "Lawyer / Corporate Counsel", pathway: "CLAT / AILET -> 5-Yr Integrated BA LL.B -> Bar Council Enrollment", skills: "Legal drafting, oral advocacy, critical reasoning, negotiation", sectors: "Litigation courts, corporate law firms, MNC legal depts", salary: "₹5 – 35+ Lakh / Year", prospects: "Strong requirement in corporate & civil law" },
+            { title: "Data Scientist / AI Specialist", pathway: "B.Tech / B.Sc Math/Stat -> Programming & Machine Learning Specialization", skills: "Statistics, Python/R, Machine Learning, SQL, Data Visualization", sectors: "Tech companies, banking, e-commerce, healthcare analytics", salary: "₹8 – 50+ Lakh / Year", prospects: "Top-rated high growth career" }
+        ];
+
+        const skillsData = [
+            { name: "Communication Skills", desc: "Express ideas clearly through speaking and writing.", matters: "Public speaking, report writing, presentations, interviews.", develop: "Join debates, write journal entries, practice public speaking.", icon: "fa-comments text-blue-500" },
+            { name: "Critical Thinking", desc: "Evaluate information logically and solve complex problems.", matters: "Research, engineering, competitive exams, public policy.", develop: "Solve analytical puzzles, read diverse opinions, analyze case studies.", icon: "fa-brain text-purple-500" },
+            { name: "Digital Literacy", desc: "Use computers, productivity software, and online tools responsibly.", matters: "Essential for virtually every modern profession.", develop: "Learn MS Office/Google Workspace, coding basics, digital safety.", icon: "fa-desktop text-emerald-500" },
+            { name: "Financial Literacy", desc: "Understand budgeting, savings, taxation, and basic investments.", matters: "Personal financial stability and entrepreneurship.", develop: "Track monthly expenses, learn basic banking & interest concepts.", icon: "fa-wallet text-amber-500" },
+            { name: "Leadership & Teamwork", desc: "Work effectively in groups and guide teams toward goals.", matters: "Corporate management, government service, community work.", develop: "Participate in sports, student councils, and group projects.", icon: "fa-users-gear text-rose-500" },
+            { name: "Time Management", desc: "Plan work efficiently, prioritize tasks, and meet deadlines.", matters: "Crucial for cracking competitive entrance exams and career efficiency.", develop: "Use daily planners, Pomodoro technique, and eliminate distractions.", icon: "fa-clock text-teal-500" }
+        ];
+
+        // RENDER FUNCTIONS
+        function renderEntranceExams(items) {
+            const container = document.getElementById('entranceExamsGrid');
+            container.innerHTML = items.map(item => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-4 hover:shadow-xl transition w-full">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-blue-100 text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">${item.category}</span>
+                            <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white mt-1.5">${item.name}</h3>
+                            <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold">${item.authority}</p>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${item.purpose}</p>
+                    <div class="space-y-1.5 text-xs text-slate-700 dark:text-slate-300 pt-2 border-t dark:border-slate-700">
+                        <p><strong>Eligibility:</strong> ${item.eligibility}</p>
+                        <p><strong>Timeline:</strong> ${item.timeline}</p>
+                        <p class="text-amber-700 dark:text-amber-400"><strong>Prep Tip:</strong> ${item.tip}</p>
+                    </div>
+                    <a href="${item.website}" target="_blank" class="inline-flex items-center space-x-1 text-xs font-bold text-sunbird-green dark:text-emerald-400 hover:underline pt-1">
+                        <span>Official Website</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function renderGovtExams(items) {
+            const container = document.getElementById('govtExamsGrid');
+            container.innerHTML = items.map(item => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-4 hover:shadow-xl transition w-full">
+                    <div>
+                        <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-300">${item.category}</span>
+                        <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white mt-1.5">${item.name}</h3>
+                        <p class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-semibold">Body: ${item.authority}</p>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">${item.purpose}</p>
+                    <div class="space-y-1.5 text-xs text-slate-700 dark:text-slate-300 pt-2 border-t dark:border-slate-700">
+                        <p><strong>Eligibility:</strong> ${item.eligibility}</p>
+                        <p><strong>Selection:</strong> ${item.selection}</p>
+                        <p><strong>Expected Timeline:</strong> ${item.timeline}</p>
+                    </div>
+                    <a href="${item.website}" target="_blank" class="inline-flex items-center space-x-1 text-xs font-bold text-sunbird-green dark:text-emerald-400 hover:underline pt-1">
+                        <span>Official Portal</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                    </a>
+                </div>
+            `).join('');
+        }
+
+        function renderProfessionalCourses() {
+            const container = document.getElementById('professionalCoursesGrid');
+            container.innerHTML = professionalCoursesData.map(c => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-3 sm:space-y-4 w-full">
+                    <div class="flex justify-between items-start">
+                        <h3 class="text-lg sm:text-xl font-bold font-heading text-sunbird-green dark:text-emerald-400">${c.name}</h3>
+                        <span class="px-2.5 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 text-[11px] font-bold rounded-full">${c.duration}</span>
+                    </div>
+                    <div class="space-y-1.5 text-xs sm:text-sm">
+                        <p><strong>Eligibility:</strong> ${c.eligibility}</p>
+                        <p><strong>Admission Route:</strong> ${c.admission}</p>
+                        <p><strong>Major Subjects:</strong> ${c.subjects}</p>
+                        <p><strong>Career Opportunities:</strong> ${c.careers}</p>
+                        <p><strong>Higher Studies:</strong> ${c.higher}</p>
+                        <p class="text-slate-500 dark:text-slate-400"><strong>Leading Institutions:</strong> ${c.institutes}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderTopUniversities() {
+            const container = document.getElementById('universitiesGrid');
+            container.innerHTML = topUniversitiesData.map(u => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-3 w-full">
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-100 text-teal-800 dark:bg-teal-900/50 dark:text-teal-300">${u.discipline}</span>
+                    <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white">${u.name}</h3>
+                    <div class="text-xs space-y-1.5 text-slate-700 dark:text-slate-300">
+                        <p><strong>Admission Route:</strong> ${u.admission}</p>
+                        <p><strong>Popular Programmes:</strong> ${u.programmes}</p>
+                        <p class="text-slate-600 dark:text-slate-400 italic pt-1">${u.why}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderScholarships() {
+            const centralContainer = document.getElementById('schol-central-view');
+            centralContainer.innerHTML = centralScholarshipsData.map(s => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-3 w-full">
+                    <span class="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-rose-100 text-rose-800 dark:bg-rose-900/50 dark:text-rose-300">${s.level}</span>
+                    <h3 class="text-base sm:text-lg font-bold font-heading text-slate-900 dark:text-white">${s.name}</h3>
+                    <p class="text-xs text-slate-600 dark:text-slate-300">${s.purpose}</p>
+                    <div class="text-xs space-y-1 pt-2 border-t dark:border-slate-700 text-emerald-700 dark:text-emerald-400 font-semibold">
+                        <p><strong>Benefits:</strong> ${s.benefits}</p>
+                        <p class="text-slate-500"><strong>Application:</strong> ${s.apply}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            const tableBody = document.getElementById('collegesTableBody');
+            tableBody.innerHTML = collegesScholarshipsData.map(c => `
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                    <td class="p-3 font-bold text-slate-900 dark:text-white">${c.college}</td>
+                    <td class="p-3 text-slate-600 dark:text-slate-300">${c.streams}</td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 font-semibold text-xs">${c.type}</span></td>
+                    <td class="p-3 text-slate-600 dark:text-slate-300">${c.coverage}</td>
+                    <td class="p-3 font-semibold text-slate-500 dark:text-slate-400">${c.location}</td>
+                </tr>
+            `).join('');
+        }
+
+        function renderCareerProfiles() {
+            const container = document.getElementById('careerProfilesGrid');
+            container.innerHTML = careerProfilesData.map(p => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-3 sm:space-y-4 w-full">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-lg sm:text-xl font-bold font-heading text-sunbird-green dark:text-emerald-400">${p.title}</h3>
+                        <span class="px-2.5 py-0.5 bg-amber-100 dark:bg-amber-900/50 text-amber-800 dark:text-amber-300 text-xs font-bold rounded-full">${p.salary}</span>
+                    </div>
+                    <div class="space-y-1.5 text-xs sm:text-sm">
+                        <p><strong>Educational Pathway:</strong> ${p.pathway}</p>
+                        <p><strong>Key Skills Required:</strong> ${p.skills}</p>
+                        <p><strong>Employment Sectors:</strong> ${p.sectors}</p>
+                        <p><strong>Future Growth Prospects:</strong> ${p.prospects}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderSkills() {
+            const container = document.getElementById('skillsGrid');
+            container.innerHTML = skillsData.map(s => `
+                <div class="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-700 space-y-3 w-full">
+                    <div class="flex items-center space-x-3">
+                        <i class="fa-solid ${s.icon} text-xl sm:text-2xl"></i>
+                        <h3 class="text-base sm:text-lg font-bold font-heading text-slate-900 dark:text-white">${s.name}</h3>
+                    </div>
+                    <p class="text-xs text-slate-600 dark:text-slate-300">${s.desc}</p>
+                    <div class="text-xs space-y-1 pt-2 border-t dark:border-slate-700">
+                        <p><strong>Why It Matters:</strong> ${s.matters}</p>
+                        <p class="text-emerald-600 dark:text-emerald-400 font-semibold"><strong>How to Develop:</strong> ${s.develop}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchSection(sectionId) {
+            document.querySelectorAll('.section-block').forEach(el => el.classList.add('hidden'));
+            document.getElementById(`section-${sectionId}`).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-link').forEach(btn => {
+                btn.classList.remove('bg-white/20', 'font-bold');
+            });
+            const activeBtn = document.getElementById(`nav-${sectionId}`);
+            if (activeBtn) activeBtn.classList.add('bg-white/20', 'font-bold');
+
+            document.getElementById('mobileMenu').classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            sendHeightToParent();
+        }
+
+        function switchScholarshipTab(tab) {
+            document.getElementById('tab-schol-central').classList.remove('active');
+            document.getElementById('tab-schol-colleges').classList.remove('active');
+            document.getElementById('schol-central-view').classList.add('hidden');
+            document.getElementById('schol-colleges-view').classList.add('hidden');
+
+            if (tab === 'central') {
+                document.getElementById('tab-schol-central').classList.add('active');
+                document.getElementById('schol-central-view').classList.remove('hidden');
+            } else {
+                document.getElementById('tab-schol-colleges').classList.add('active');
+                document.getElementById('schol-colleges-view').classList.remove('hidden');
+            }
+            sendHeightToParent();
+        }
+
+        function filterExams(cat) {
+            document.querySelectorAll('.exam-filter-btn').forEach(b => {
+                b.classList.remove('bg-sunbird-green', 'text-white');
+                b.classList.add('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-200');
+            });
+            event.target.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-200');
+            event.target.classList.add('bg-sunbird-green', 'text-white');
+
+            if (cat === 'all') renderEntranceExams(entranceExamsData);
+            else renderEntranceExams(entranceExamsData.filter(e => e.category === cat));
+            sendHeightToParent();
+        }
+
+        function filterGovtExams(cat) {
+            document.querySelectorAll('.govt-filter-btn').forEach(b => {
+                b.classList.remove('bg-sunbird-green', 'text-white');
+                b.classList.add('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-200');
+            });
+            event.target.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-200');
+            event.target.classList.add('bg-sunbird-green', 'text-white');
+
+            if (cat === 'all') renderGovtExams(govtExamsData);
+            else renderGovtExams(govtExamsData.filter(e => e.category === cat));
+            sendHeightToParent();
+        }
+
+        function filterCollegesTable() {
+            const query = document.getElementById('collegeScholSearch').value.toLowerCase();
+            const filtered = collegesScholarshipsData.filter(c => 
+                c.college.toLowerCase().includes(query) || 
+                c.location.toLowerCase().includes(query) ||
+                c.streams.toLowerCase().includes(query)
+            );
+            const tableBody = document.getElementById('collegesTableBody');
+            tableBody.innerHTML = filtered.map(c => `
+                <tr class="hover:bg-slate-50 dark:hover:bg-slate-700/50">
+                    <td class="p-3 font-bold text-slate-900 dark:text-white">${c.college}</td>
+                    <td class="p-3 text-slate-600 dark:text-slate-300">${c.streams}</td>
+                    <td class="p-3"><span class="px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-900/40 text-emerald-800 dark:text-emerald-300 font-semibold text-xs">${c.type}</span></td>
+                    <td class="p-3 text-slate-600 dark:text-slate-300">${c.coverage}</td>
+                    <td class="p-3 font-semibold text-slate-500 dark:text-slate-400">${c.location}</td>
+                </tr>
+            `).join('');
+            sendHeightToParent();
+        }
+
+        function handleGlobalSearch() {
+            const query = document.getElementById('globalSearchInput').value.toLowerCase().trim();
+            const searchResultsSection = document.getElementById('searchResultsSection');
+            const searchResultsContainer = document.getElementById('searchResultsContainer');
+
+            if (query.length < 2) {
+                searchResultsSection.classList.add('hidden');
+                return;
+            }
+
+            searchResultsSection.classList.remove('hidden');
+            let results = [];
+            entranceExamsData.forEach(e => {
+                if (e.name.toLowerCase().includes(query) || e.purpose.toLowerCase().includes(query) || e.category.toLowerCase().includes(query)) {
+                    results.push({ title: e.name, type: "Entrance Exam", desc: e.purpose, sec: "entrance" });
+                }
+            });
+            govtExamsData.forEach(g => {
+                if (g.name.toLowerCase().includes(query) || g.purpose.toLowerCase().includes(query)) {
+                    results.push({ title: g.name, type: "Govt Recruitment", desc: g.purpose, sec: "govt" });
+                }
+            });
+            collegesScholarshipsData.forEach(c => {
+                if (c.college.toLowerCase().includes(query) || c.location.toLowerCase().includes(query)) {
+                    results.push({ title: c.college, type: "College Scholarship", desc: `${c.type} - ${c.coverage}`, sec: "scholarships" });
+                }
+            });
+            careerProfilesData.forEach(p => {
+                if (p.title.toLowerCase().includes(query) || p.skills.toLowerCase().includes(query)) {
+                    results.push({ title: p.title, type: "Career Profile", desc: p.pathway, sec: "careers" });
+                }
+            });
+
+            if (results.length === 0) {
+                searchResultsContainer.innerHTML = `<p class="text-xs text-slate-500 p-3 text-center">No matching records found for "${query}".</p>`;
+            } else {
+                searchResultsContainer.innerHTML = results.map(r => `
+                    <div onclick="switchSection('${r.sec}'); closeGlobalSearch();" class="p-3 bg-slate-50 dark:bg-slate-700/50 rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-950/40 cursor-pointer transition">
+                        <div class="flex justify-between items-center">
+                            <h4 class="font-bold text-xs sm:text-sm text-slate-900 dark:text-white">${r.title}</h4>
+                            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-sunbird-green text-white">${r.type}</span>
+                        </div>
+                        <p class="text-[11px] text-slate-600 dark:text-slate-300 mt-1">${r.desc}</p>
+                    </div>
+                `).join('');
+            }
+            sendHeightToParent();
+        }
+
+        function closeGlobalSearch() {
+            document.getElementById('searchResultsSection').classList.add('hidden');
+        }
+
+        function updateChecklist() {
+            const checkboxes = document.querySelectorAll('#checklistItemsContainer input[type="checkbox"]');
+            let checkedCount = 0;
+            checkboxes.forEach(cb => { if (cb.checked) checkedCount++; });
+            const percentage = Math.round((checkedCount / checkboxes.length) * 100);
+            
+            document.getElementById('checklistProgress').innerText = `${percentage}% Completed`;
+            document.getElementById('checklistProgressBar').style.width = `${percentage}%`;
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            const isDark = document.documentElement.classList.contains('dark');
+            document.getElementById('themeIcon').className = isDark ? 'fa-solid fa-sun text-base sm:text-lg text-amber-400' : 'fa-solid fa-moon text-base sm:text-lg';
+        }
+
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+            sendHeightToParent();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            renderEntranceExams(entranceExamsData);
+            renderGovtExams(govtExamsData);
+            renderProfessionalCourses();
+            renderTopUniversities();
+            renderScholarships();
+            renderCareerProfiles();
+            renderSkills();
+            sendHeightToParent();
+        });
+    </script>
+</body>
+</html>
