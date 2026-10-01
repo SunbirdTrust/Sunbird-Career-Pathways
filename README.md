@@ -1,4 +1,4 @@
-# 🎓 Sunbird Trust - Career Guidance Handbook Web Portal
+#  Sunbird Trust - Career Guidance Handbook Web Portal
 
 An interactive, responsive, single-page web portal created for the **Career Guidance Handbook for Students** (Sunbird Trust Educational Initiative).
 
