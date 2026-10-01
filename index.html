@@ -57,12 +57,12 @@
                 border: 12px solid #8d5b4c;
             }
         }
-        .quote-card {
-            background: linear-gradient(135deg, #fff9e6 0%, #fff3cc 100%);
+        .quote-banner {
+            background: linear-gradient(135deg, #fff9e6 0%, #fff0c2 100%);
             border-left: 6px solid #f57c00;
         }
-        .dark .quote-card {
-            background: linear-gradient(135deg, #2a2518 0%, #1f1b10 100%);
+        .dark .quote-banner {
+            background: linear-gradient(135deg, #2a2415 0%, #1f1a0e 100%);
             border-left: 6px solid #ffb300;
         }
         .tab-btn.active {
@@ -102,9 +102,7 @@
             <div class="flex items-center justify-between h-16">
                 <!-- Logo & Title -->
                 <div class="flex items-center space-x-3 cursor-pointer shrink-0" onclick="switchSection('home')">
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-sunbird-green text-white flex items-center justify-center font-bold text-lg sm:text-xl shadow-md">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
+                    <img src="sunbird-logo.png" alt="Sunbird Trust Logo" class="h-10 sm:h-12 w-auto object-contain rounded-md shadow-sm">
                     <div>
                         <span class="font-heading font-bold text-base sm:text-xl text-sunbird-green dark:text-emerald-400 block leading-tight">Sunbird Trust</span>
                         <span class="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium hidden sm:block">Career Pathways & Guidance Handbook</span>
@@ -136,7 +134,7 @@
             </div>
         </div>
 
-        <!-- Navigation Bar / Tabs (Google Site Navigation) - Horizontal Scrollable Row -->
+        <!-- Navigation Bar / Tabs (Google Site Navigation) -->
         <nav class="hidden lg:block bg-sunbird-green dark:bg-slate-950 text-white shadow-inner w-full">
             <div class="w-full px-2 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto text-xs font-medium py-1.5 space-x-1 scrollbar-thin">
                 <button onclick="switchSection('home')" id="nav-home" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap bg-white/20 font-bold">Home</button>
@@ -179,8 +177,15 @@
 
         <!-- ================= SECTION 1: HOME ================= -->
         <section id="section-home" class="section-block space-y-8 w-full">
-            <!-- Hero Blackboard Canvas -->
-            <div class="chalk-border rounded-2xl blackboard-bg text-white p-5 sm:p-10 text-center relative overflow-hidden w-full">
+            <!-- Hero Blackboard Canvas (Page 1 Photo Artwork) -->
+            <div class="chalk-border rounded-2xl blackboard-bg text-white p-6 sm:p-12 text-center relative overflow-hidden w-full">
+                <!-- Decorative Chalk SVG Icons background -->
+                <div class="absolute inset-0 opacity-10 pointer-events-none flex justify-between items-center px-6">
+                    <i class="fa-solid fa-book-open text-9xl"></i>
+                    <i class="fa-solid fa-lightbulb text-9xl"></i>
+                    <i class="fa-solid fa-atom text-9xl"></i>
+                </div>
+
                 <div class="relative z-10 w-full max-w-4xl mx-auto space-y-4 sm:space-y-6">
                     <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-[11px] sm:text-xs font-semibold uppercase tracking-wider border border-emerald-400/30">
                         Sunbird Trust Educational Initiative
@@ -188,16 +193,26 @@
                     <h1 class="text-2xl sm:text-4xl lg:text-5xl font-extrabold font-heading tracking-tight text-white leading-tight">
                         Career Guidance Handbook for Students
                     </h1>
-                    <div class="quote-card p-3 sm:p-5 rounded-xl text-slate-800 dark:text-amber-100 w-full max-w-2xl mx-auto shadow-lg text-left relative">
-                        <i class="fa-solid fa-quote-left text-xl sm:text-2xl text-amber-600/40 dark:text-amber-400/30 absolute top-3 left-3"></i>
-                        <p class="italic font-serif text-xs sm:text-base pl-5 sm:pl-6 font-medium text-slate-900 dark:text-amber-100">
-                            "Education is the most powerful weapon which you can use to change the world."
-                        </p>
-                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-800 dark:text-amber-300 mt-2">— Nelson Mandela</p>
+                    
+                    <!-- Page 1 Quote Banner Visual -->
+                    <div class="quote-banner p-4 sm:p-6 rounded-2xl text-slate-900 dark:text-amber-100 w-full max-w-2xl mx-auto shadow-xl text-left relative border border-amber-300/40">
+                        <div class="flex items-start space-x-3">
+                            <div class="w-10 h-10 rounded-full bg-amber-500 text-white flex items-center justify-center text-xl shrink-0 shadow">
+                                <i class="fa-solid fa-quote-left"></i>
+                            </div>
+                            <div>
+                                <p class="italic font-serif text-sm sm:text-lg font-bold leading-snug text-amber-950 dark:text-amber-100">
+                                    "Education is the most powerful weapon which you can use to change the world."
+                                </p>
+                                <p class="text-right text-xs font-extrabold text-amber-800 dark:text-amber-300 mt-2">— Nelson Mandela</p>
+                            </div>
+                        </div>
                     </div>
+
                     <p class="text-emerald-100/90 text-xs sm:text-base leading-relaxed max-w-3xl mx-auto">
                         A practical reference roadmap designed for students from primary school to postgraduate level. Explore entrance examinations, government recruitments, professional degrees, scholarships, top universities, and career pathways.
                     </p>
+                    
                     <div class="flex flex-wrap justify-center gap-3 pt-2">
                         <button onclick="switchSection('roadmap')" class="px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl bg-sunbird-gold text-white text-xs sm:text-sm font-bold hover:bg-amber-600 transition shadow-lg flex items-center space-x-2">
                             <i class="fa-solid fa-route"></i>
@@ -208,6 +223,28 @@
                             <span>Find Scholarships</span>
                         </button>
                     </div>
+                </div>
+            </div>
+
+            <!-- Page 3 Quote Banner Artwork (B.B. King READ) -->
+            <div class="bg-gradient-to-r from-teal-800 to-emerald-900 rounded-2xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 w-full">
+                <div class="flex items-center space-x-4">
+                    <div class="w-16 h-16 rounded-2xl bg-white/10 text-amber-400 flex items-center justify-center text-3xl shrink-0 border border-white/20">
+                        <i class="fa-solid fa-book-bookmark"></i>
+                    </div>
+                    <div>
+                        <span class="text-xs uppercase tracking-widest text-emerald-300 font-bold">Part 1 Learning Perspective</span>
+                        <p class="italic font-serif text-sm sm:text-lg font-semibold text-amber-100 mt-1">
+                            "The beautiful thing about learning is that no one can take it away from you."
+                        </p>
+                        <p class="text-xs font-bold text-emerald-300 mt-1">— B.B. King</p>
+                    </div>
+                </div>
+                <div class="flex space-x-2 shrink-0">
+                    <span class="px-3 py-1.5 rounded-lg bg-amber-500/20 text-amber-300 font-extrabold text-sm border border-amber-400/30">R</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-emerald-500/20 text-emerald-300 font-extrabold text-sm border border-emerald-400/30">E</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-blue-500/20 text-blue-300 font-extrabold text-sm border border-blue-400/30">A</span>
+                    <span class="px-3 py-1.5 rounded-lg bg-purple-500/20 text-purple-300 font-extrabold text-sm border border-purple-400/30">D</span>
                 </div>
             </div>
 
@@ -283,25 +320,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Words of Wisdom Cards -->
-            <div class="space-y-4 w-full">
-                <h3 class="text-lg sm:text-xl font-bold font-heading text-slate-900 dark:text-white">Words of Wisdom for Students</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-                    <div class="quote-card p-4 sm:p-5 rounded-2xl shadow-sm">
-                        <p class="italic text-xs sm:text-sm text-slate-800 dark:text-amber-100">"The beautiful thing about learning is that no one can take it away from you."</p>
-                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 mt-2">— B.B. King</p>
-                    </div>
-                    <div class="quote-card p-4 sm:p-5 rounded-2xl shadow-sm">
-                        <p class="italic text-xs sm:text-sm text-slate-800 dark:text-amber-100">"There are no secrets to success. It is the result of preparation, hard work, and learning from failure."</p>
-                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 mt-2">— Colin Powell</p>
-                    </div>
-                    <div class="quote-card p-4 sm:p-5 rounded-2xl shadow-sm">
-                        <p class="italic text-xs sm:text-sm text-slate-800 dark:text-amber-100">"Knowledge is power. Information is liberating. Education is the premise of progress."</p>
-                        <p class="text-right text-[11px] sm:text-xs font-bold text-amber-700 dark:text-amber-400 mt-2">— Kofi Annan</p>
-                    </div>
-                </div>
-            </div>
         </section>
 
         <!-- ================= SECTION 2: ROADMAP ================= -->
@@ -309,6 +327,22 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
                 <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 1: Educational Stage Roadmap</h2>
                 <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">From primary school to postgraduate studies — key focus areas and next steps.</p>
+            </div>
+
+            <!-- Page 39 Cartoon Visual Callout Box ("Thinking! Climb That Tree") -->
+            <div class="bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-300 dark:border-amber-700 rounded-2xl p-5 sm:p-6 shadow-md flex flex-col md:flex-row items-center gap-6 w-full">
+                <div class="w-16 h-16 rounded-2xl bg-amber-500 text-white flex items-center justify-center text-3xl shrink-0 shadow-lg">
+                    <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div class="space-y-2">
+                    <div class="flex items-center space-x-2">
+                        <span class="px-2.5 py-0.5 rounded-full bg-amber-600 text-white text-xs font-bold uppercase">Thinking!</span>
+                        <h3 class="text-base sm:text-lg font-bold text-amber-900 dark:text-amber-200">Choosing the Right Path for YOUR Aptitude</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-amber-950 dark:text-amber-100 italic leading-relaxed">
+                        "For a fair selection everybody has to take the same exam: Please climb that tree." — Just like an elephant, monkey, or penguin have different strengths, every student has unique interests and aptitudes. Choose stream choices based on what suits YOU best!
+                    </p>
+                </div>
             </div>
 
             <!-- Stage Level Table -->
@@ -461,6 +495,17 @@
                 </div>
             </div>
 
+            <!-- Page 13 Quote Banner Artwork (Colin Powell Success) -->
+            <div class="quote-banner p-5 sm:p-6 rounded-2xl shadow-md border-l-8 border-sunbird-gold flex items-center space-x-4 w-full">
+                <i class="fa-solid fa-award text-3xl sm:text-4xl text-amber-600 dark:text-amber-400 shrink-0"></i>
+                <div>
+                    <p class="italic font-serif text-xs sm:text-base font-bold text-amber-950 dark:text-amber-100">
+                        "There are no secrets to success. It is the result of preparation, hard work, and learning from failure."
+                    </p>
+                    <p class="text-right text-xs font-extrabold text-amber-800 dark:text-amber-300 mt-1">— Colin Powell</p>
+                </div>
+            </div>
+
             <div id="entranceExamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
         </section>
 
@@ -481,6 +526,17 @@
                 </div>
             </div>
 
+            <!-- Page 24 Quote Banner (Christian D. Larson) -->
+            <div class="bg-gradient-to-r from-blue-900 to-indigo-900 rounded-2xl p-5 sm:p-6 text-white shadow-xl flex items-center space-x-4 w-full">
+                <i class="fa-solid fa-laptop-code text-3xl sm:text-4xl text-blue-400 shrink-0"></i>
+                <div>
+                    <p class="italic font-serif text-xs sm:text-base font-bold text-blue-100">
+                        "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle."
+                    </p>
+                    <p class="text-right text-xs font-extrabold text-blue-300 mt-1">— Christian D. Larson</p>
+                </div>
+            </div>
+
             <div id="govtExamsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
         </section>
 
@@ -489,6 +545,17 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
                 <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 4: Professional Courses in India</h2>
                 <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Detailed overview of major professional degrees available after Class 12.</p>
+            </div>
+
+            <!-- Page 27 Quote Banner Artwork (William Butler Yeats Tree of Books) -->
+            <div class="bg-gradient-to-r from-emerald-900 to-teal-900 rounded-2xl p-5 sm:p-6 text-white shadow-xl flex items-center space-x-4 w-full border border-emerald-500/30">
+                <i class="fa-solid fa-tree-city text-3xl sm:text-4xl text-emerald-400 shrink-0"></i>
+                <div>
+                    <p class="italic font-serif text-xs sm:text-base font-bold text-emerald-100">
+                        "Do not wait to strike till the iron is hot; but make it hot by striking."
+                    </p>
+                    <p class="text-right text-xs font-extrabold text-emerald-300 mt-1">— William Butler Yeats</p>
+                </div>
             </div>
 
             <div id="professionalCoursesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full"></div>
@@ -529,6 +596,17 @@
                 <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Expanded reference guide to premier educational institutes in India.</p>
             </div>
 
+            <!-- Page 31 Quote Banner (Aristotle) -->
+            <div class="quote-banner p-5 sm:p-6 rounded-2xl shadow-md flex items-center space-x-4 w-full">
+                <i class="fa-solid fa-seedling text-3xl sm:text-4xl text-emerald-600 dark:text-emerald-400 shrink-0"></i>
+                <div>
+                    <p class="italic font-serif text-xs sm:text-base font-bold text-amber-950 dark:text-amber-100">
+                        "The roots of education are bitter, but the fruit is sweet."
+                    </p>
+                    <p class="text-right text-xs font-extrabold text-amber-800 dark:text-amber-300 mt-1">— Aristotle</p>
+                </div>
+            </div>
+
             <div id="universitiesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
         </section>
 
@@ -537,6 +615,17 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
                 <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 6 & 9: Scholarships & Colleges Directory</h2>
                 <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">National financial aid schemes and comprehensive list of colleges with scholarships (special focus on North-East India).</p>
+            </div>
+
+            <!-- Page 44 Quote Banner (Mahatma Gandhi Lifelong Learning) -->
+            <div class="bg-gradient-to-r from-amber-700 to-amber-900 rounded-2xl p-5 sm:p-6 text-white shadow-xl flex items-center space-x-4 w-full">
+                <i class="fa-solid fa-graduation-cap text-3xl sm:text-4xl text-amber-300 shrink-0"></i>
+                <div>
+                    <p class="italic font-serif text-xs sm:text-base font-bold text-amber-100">
+                        "Live as if you were to die tomorrow. Learn as if you were to live forever."
+                    </p>
+                    <p class="text-right text-xs font-extrabold text-amber-300 mt-1">— Mahatma Gandhi</p>
+                </div>
             </div>
 
             <div class="flex space-x-4 border-b border-slate-200 dark:border-slate-700">
@@ -577,6 +666,17 @@
                 <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Detailed profiles summarizing educational pathways, skills, sectors, and salary ranges.</p>
             </div>
 
+            <!-- Page 36 Quote Banner (Chinese Proverb) -->
+            <div class="quote-banner p-5 sm:p-6 rounded-2xl shadow-md flex items-center space-x-4 w-full">
+                <i class="fa-solid fa-gem text-3xl sm:text-4xl text-amber-600 dark:text-amber-400 shrink-0"></i>
+                <div>
+                    <p class="italic font-serif text-xs sm:text-base font-bold text-amber-950 dark:text-amber-100">
+                        "Learning is a treasure that will follow its owner everywhere."
+                    </p>
+                    <p class="text-right text-xs font-extrabold text-amber-800 dark:text-amber-300 mt-1">— Chinese Proverb</p>
+                </div>
+            </div>
+
             <div id="careerProfilesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 w-full"></div>
         </section>
 
@@ -585,6 +685,29 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-4">
                 <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">Part 8: Essential Skills for Success</h2>
                 <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Transferable skills vital for academic performance, entrance exams, and future careers.</p>
+            </div>
+
+            <!-- Page 40 Quote Banner (Kofi Annan) & Page 43 Brain Software Cartoon -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+                <div class="quote-banner p-5 rounded-2xl shadow-md flex items-center space-x-3">
+                    <i class="fa-solid fa-key text-3xl text-amber-600 dark:text-amber-400 shrink-0"></i>
+                    <div>
+                        <p class="italic font-serif text-xs sm:text-sm font-bold text-amber-950 dark:text-amber-100">
+                            "Knowledge is power. Information is liberating. Education is the premise of progress."
+                        </p>
+                        <p class="text-right text-xs font-extrabold text-amber-800 dark:text-amber-300 mt-1">— Kofi Annan</p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-5 rounded-2xl shadow-md flex items-center space-x-3 border border-slate-700">
+                    <i class="fa-solid fa-brain text-3xl text-purple-400 shrink-0"></i>
+                    <div>
+                        <p class="italic text-xs sm:text-sm text-purple-200 font-semibold">
+                            "It's called 'reading'. It's how people install new software into their brains!"
+                        </p>
+                        <p class="text-right text-xs font-bold text-purple-400 mt-1">— Academic Wisdom</p>
+                    </div>
+                </div>
             </div>
 
             <div id="skillsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 w-full"></div>
@@ -654,7 +777,6 @@
 
     <!-- JAVASCRIPT DATA & INTERACTION CODE -->
     <script>
-        // IFRAME HEIGHT AUTOMATION FOR GOOGLE SITES
         function sendHeightToParent() {
             const height = document.documentElement.scrollHeight || document.body.scrollHeight;
             window.parent.postMessage({ frameHeight: height }, '*');
