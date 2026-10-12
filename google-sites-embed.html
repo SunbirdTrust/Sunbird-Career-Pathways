@@ -161,7 +161,7 @@
                 <button onclick="switchSection('courses')" id="nav-courses" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">📚 Course Explorer</button>
                 <button onclick="switchSection('entrance')" id="nav-entrance" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">📝 Exam Centre</button>
                 <button onclick="switchSection('universities')" id="nav-universities" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">🏛️ University Guide</button>
-                <button onclick="switchSection('scholarships')" id="nav-scholarships" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">💰 Scholarship Centre</button>
+                <button onclick="switchSection('scholarships')" id="nav-scholarships" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">₹ Scholarship Centre</button>
                 <button onclick="switchSection('skills')" id="nav-skills" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">🛠️ Skills Centre</button>
             </div>
         </nav>
@@ -175,7 +175,7 @@
             <button onclick="switchSection('courses')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">📚 Course Explorer</button>
             <button onclick="switchSection('entrance')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">📝 Exam Centre (Entrance & Govt)</button>
             <button onclick="switchSection('universities')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">🏛️ University Guide</button>
-            <button onclick="switchSection('scholarships')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">💰 Scholarship Centre</button>
+            <button onclick="switchSection('scholarships')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">₹ Scholarship Centre</button>
             <button onclick="switchSection('skills')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">🛠️ Skills Centre & Checklist</button>
         </div>
     </header>
@@ -490,7 +490,7 @@
                         <div class="p-5 sm:p-6 flex-grow flex flex-col justify-between space-y-4 text-center">
                             <div class="space-y-2">
                                 <h3 class="text-lg font-bold font-heading text-slate-900 dark:text-white">
-                                    💰 I am looking for scholarships
+                                    ₹ I am looking for scholarships
                                 </h3>
                                 <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 italic">
                                     Discover Central NSP, state grants, and 25+ colleges offering merit & need-based funding.
@@ -1001,7 +1001,7 @@
             <div class="border-b border-slate-200 dark:border-slate-800 pb-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                 <div>
                     <span class="text-xs font-bold uppercase tracking-wider text-site-primary dark:text-blue-400">Part 6 & 9 Funding Directory</span>
-                    <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">💰 Scholarship & Financial Aid Centre</h2>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold font-heading text-slate-900 dark:text-white">₹ Scholarship & Financial Aid Centre</h2>
                     <p class="text-slate-600 dark:text-slate-400 text-xs sm:text-sm mt-1">Central government schemes, state stipends, and college financial aid with full eligibility details.</p>
                 </div>
                 <!-- Tab switch -->
@@ -1014,8 +1014,8 @@
             <!-- INSPIRATIONAL QUOTE BANNER: EDUCATION & OPPORTUNITY -->
             <div class="relative overflow-hidden rounded-2xl bg-gradient-to-r from-rose-500/10 via-rose-500/5 to-transparent dark:from-rose-950/40 dark:via-slate-800/60 dark:to-slate-800 border-l-4 border-rose-500 border-y border-r border-rose-200/60 dark:border-rose-800/40 p-5 sm:p-6 shadow-sm">
                 <div class="flex items-start space-x-3.5">
-                    <div class="w-11 h-11 rounded-xl bg-rose-500 text-white flex items-center justify-center text-lg shrink-0 shadow-sm">
-                        <i class="fa-solid fa-hand-holding-dollar"></i>
+                    <div class="w-11 h-11 rounded-xl bg-rose-500 text-white flex items-center justify-center text-lg shrink-0 shadow-sm font-bold">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
                     </div>
                     <div class="space-y-1 flex-1">
                         <span class="inline-block px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase bg-rose-500/20 text-rose-800 dark:text-rose-300">
@@ -1273,12 +1273,12 @@
 
         // CENTRAL SCHOLARSHIPS DATA (Merged from scholarship-centre.html)
         const centralScholarshipsData = [
-            { name: "National Scholarship Portal (NSP)", level: "Class 11, 12, UG, PG", purpose: "Single Unified Central Portal for all Central Govt schemes (Pre-Matric, Post-Matric, Merit, Top Class)", benefits: "Direct Bank Transfer: Tuition fees, book allowance & maintenance stipend", apply: "scholarships.gov.in" },
-            { name: "Central Sector Scheme of Scholarships (CSSS)", level: "Undergraduate (UG)", purpose: "Merit scholarship for top 80,000 Class XII board rankers pursuing regular undergraduate degree courses", benefits: "₹12,000/year for UG (first 3 years), ₹20,000/year for PG", apply: "scholarships.gov.in (NSP Portal)" },
-            { name: "INSPIRE Scholarship for Higher Education (SHE)", level: "UG / PG Basic Sciences", purpose: "Top 1% Class 12 board toppers pursuing B.Sc / B.S. / Int. M.Sc in Natural & Basic Sciences", benefits: "₹80,000 per year (₹60,000 annual cash + ₹20,000 research mentorship project)", apply: "online-inspire.gov.in" },
-            { name: "UGC Ishan Uday Scholarship for North-East", level: "Undergraduate (NE Students)", purpose: "Special scheme for 10,000 students having domicile in North Eastern Region for general/technical degree courses", benefits: "₹5,400/month for General Degree; ₹7,800/month for Technical/Medical degrees", apply: "scholarships.gov.in" },
-            { name: "AICTE Pragati Scholarship for Girls", level: "Degree / Diploma Tech", purpose: "Advancement of girl students admitted to AICTE approved technical degree or diploma courses", benefits: "₹50,000 per annum for tuition & contingency expenses", apply: "scholarships.gov.in / aicte-pragati.org" },
-            { name: "PM-YASASVI Scheme", level: "Class 11-12 & Top Class College", purpose: "Scholarships for meritorious OBC, EBC, and DNT students from economically weaker sections", benefits: "Up to ₹1,25,000/year for Class 11-12 and full fee coverage in designated colleges", apply: "scholarships.gov.in" }
+            { name: "National Scholarship Portal (NSP)", level: "Class 11, 12, UG, PG", purpose: "Single Unified Central Portal for all Central Govt schemes (Pre-Matric, Post-Matric, Merit, Top Class)", benefits: "Direct Bank Transfer: Tuition fees, book allowance & maintenance stipend", apply: "scholarships.gov.in", url: "https://scholarships.gov.in" },
+            { name: "Central Sector Scheme of Scholarships (CSSS)", level: "Undergraduate (UG)", purpose: "Merit scholarship for top 80,000 Class XII board rankers pursuing regular undergraduate degree courses", benefits: "₹12,000/year for UG (first 3 years), ₹20,000/year for PG", apply: "scholarships.gov.in (NSP Portal)", url: "https://scholarships.gov.in" },
+            { name: "INSPIRE Scholarship for Higher Education (SHE)", level: "UG / PG Basic Sciences", purpose: "Top 1% Class 12 board toppers pursuing B.Sc / B.S. / Int. M.Sc in Natural & Basic Sciences", benefits: "₹80,000 per year (₹60,000 annual cash + ₹20,000 research mentorship project)", apply: "online-inspire.gov.in", url: "https://online-inspire.gov.in" },
+            { name: "UGC Ishan Uday Scholarship for North-East", level: "Undergraduate (NE Students)", purpose: "Special scheme for 10,000 students having domicile in North Eastern Region for general/technical degree courses", benefits: "₹5,400/month for General Degree; ₹7,800/month for Technical/Medical degrees", apply: "scholarships.gov.in (UGC Schemes)", url: "https://scholarships.gov.in" },
+            { name: "AICTE Pragati Scholarship for Girls", level: "Degree / Diploma Tech", purpose: "Advancement of girl students admitted to AICTE approved technical degree or diploma courses", benefits: "₹50,000 per annum for tuition & contingency expenses", apply: "scholarships.gov.in (AICTE Portal)", url: "https://scholarships.gov.in" },
+            { name: "PM-YASASVI Scheme", level: "Class 11-12 & Top Class College", purpose: "Scholarships for meritorious OBC, EBC, and DNT students from economically weaker sections", benefits: "Up to ₹1,25,000/year for Class 11-12 and full fee coverage in designated colleges", apply: "scholarships.gov.in", url: "https://scholarships.gov.in" }
         ];
 
         // 25+ COLLEGES WITH SCHOLARSHIPS (Merged from scholarship-centre.html)
@@ -1445,7 +1445,13 @@
                             <p><strong>Financial Benefits:</strong> ${s.benefits}</p>
                         </div>
                     </div>
-                    <p class="text-[11px] text-slate-500 dark:text-slate-400 pt-2 border-t dark:border-slate-700/60"><strong>Apply Via:</strong> ${s.apply}</p>
+                    <div class="pt-2.5 border-t dark:border-slate-700/60 flex flex-wrap items-center justify-between gap-1 text-[11px]">
+                        <span class="text-slate-500 dark:text-slate-400 font-semibold">Apply Via:</span>
+                        <a href="${s.url}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 font-bold text-site-primary dark:text-blue-400 hover:text-amber-600 dark:hover:text-amber-400 hover:underline">
+                            <span>${s.apply}</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
                 </div>
             `).join('');
 
