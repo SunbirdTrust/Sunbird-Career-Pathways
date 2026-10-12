@@ -50,9 +50,9 @@
         }
         .hero-banner {
             position: relative;
-            background: linear-gradient(rgba(30, 58, 138, 0.78), rgba(15, 23, 42, 0.85)), 
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1600&auto=format&fit=crop&q=80') center/cover no-repeat;
-            min-height: 320px;
+            background: linear-gradient(rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.75)), 
+                        url('hero-banner.jpg') center/cover no-repeat;
+            min-height: 360px;
         }
         .banner-section-a {
             background-color: #d97706;
@@ -315,7 +315,7 @@
                     <!-- CARD 1: I am in Class 11–12 -->
                     <div class="portal-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200 dark:border-slate-700 flex flex-col transition duration-300">
                         <div class="card-img-container relative">
-                            <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&auto=format&fit=crop&q=80" alt="Students in Class 11-12">
+                            <img src="std11-12.jpg" alt="Sunbird Students in Standard 11–12">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-site-primary text-white shadow">Standard 11–12</span>
                         </div>
                         <div class="p-5 sm:p-6 flex-grow flex flex-col justify-between space-y-4 text-center">
@@ -363,7 +363,7 @@
                     <!-- CARD 3: Under-Graduation & Beyond -->
                     <div class="portal-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200 dark:border-slate-700 flex flex-col transition duration-300">
                         <div class="card-img-container relative">
-                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop&q=80" alt="College Undergraduates">
+                            <img src="undergrad.jpg" alt="Sunbird Graduates - Under-Graduation & Beyond">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-600 text-white shadow">Under-Graduation</span>
                         </div>
                         <div class="p-5 sm:p-6 flex-grow flex flex-col justify-between space-y-4 text-center">
@@ -387,7 +387,7 @@
                     <!-- CARD 4: I want to explore careers -->
                     <div class="portal-card bg-white dark:bg-slate-800 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl border border-slate-200 dark:border-slate-700 flex flex-col transition duration-300">
                         <div class="card-img-container relative">
-                            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=800&auto=format&fit=crop&q=80" alt="Career Explorer">
+                            <img src="explore-careers.jpg" alt="Sunbird Career Explorer">
                             <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full text-[11px] font-bold bg-indigo-600 text-white shadow">11+ Career Paths</span>
                         </div>
                         <div class="p-5 sm:p-6 flex-grow flex flex-col justify-between space-y-4 text-center">
@@ -1522,11 +1522,15 @@
             `).join('');
         }
 
-        // NAVIGATION LOGIC
-        function switchSection(sectionId) {
-            document.querySelectorAll('.section-block').forEach(el => el.classList.add('hidden'));
+        // NAVIGATION LOGIC WITH BROWSER HISTORY & BACK BUTTON SUPPORT
+        function switchSection(sectionId, pushHistory = true) {
+            if (!sectionId) sectionId = 'home';
             const targetSection = document.getElementById(`section-${sectionId}`);
-            if (targetSection) targetSection.classList.remove('hidden');
+            if (!targetSection) sectionId = 'home';
+
+            document.querySelectorAll('.section-block').forEach(el => el.classList.add('hidden'));
+            const activeSection = document.getElementById(`section-${sectionId}`);
+            if (activeSection) activeSection.classList.remove('hidden');
 
             document.querySelectorAll('.nav-link').forEach(btn => {
                 btn.classList.remove('bg-white/20', 'font-bold');
@@ -1534,10 +1538,26 @@
             const activeBtn = document.getElementById(`nav-${sectionId}`);
             if (activeBtn) activeBtn.classList.add('bg-white/20', 'font-bold');
 
-            document.getElementById('mobileMenu').classList.add('hidden');
+            const mobileMenu = document.getElementById('mobileMenu');
+            if (mobileMenu) mobileMenu.classList.add('hidden');
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
             sendHeightToParent();
+
+            // Push section to browser history so Back/Forward buttons navigate between pages
+            if (pushHistory) {
+                const targetHash = '#' + sectionId;
+                if (window.location.hash !== targetHash) {
+                    history.pushState({ section: sectionId }, '', targetHash);
+                }
+            }
         }
+
+        // Listen for browser Back and Forward buttons
+        window.addEventListener('popstate', (e) => {
+            const section = (e.state && e.state.section) ? e.state.section : (window.location.hash ? window.location.hash.replace('#', '') : 'home');
+            switchSection(section, false);
+        });
 
         function scrollToSection(elemId) {
             const el = document.getElementById(elemId);
@@ -1919,6 +1939,17 @@
             renderCareerProfiles();
             renderSkills();
             updateAdvisorResult();
+
+            // Check if user opened a direct section link (e.g. #scholarships or #careers)
+            const initialSection = window.location.hash ? window.location.hash.replace('#', '') : 'home';
+            if (document.getElementById(`section-${initialSection}`)) {
+                switchSection(initialSection, false);
+                history.replaceState({ section: initialSection }, '', '#' + initialSection);
+            } else {
+                switchSection('home', false);
+                history.replaceState({ section: 'home' }, '', '#home');
+            }
+
             sendHeightToParent();
         });
     </script>
