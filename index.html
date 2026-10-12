@@ -50,9 +50,20 @@
         }
         .hero-banner {
             position: relative;
-            background: linear-gradient(rgba(15, 23, 42, 0.62), rgba(15, 23, 42, 0.75)), 
+            background: linear-gradient(180deg, rgba(15, 23, 42, 0.30) 0%, rgba(15, 23, 42, 0.18) 45%, rgba(15, 23, 42, 0.40) 100%), 
                         url('hero-banner.jpg') center/cover no-repeat;
-            min-height: 360px;
+            min-height: 380px;
+        }
+        .hero-text-shadow {
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 4px 18px rgba(0, 0, 0, 0.85), 0 1px 2px rgba(0, 0, 0, 1);
+        }
+        .hero-subtext-shadow {
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.95), 0 3px 14px rgba(0, 0, 0, 0.85);
+        }
+        .hero-center-glow {
+            background: radial-gradient(ellipse at center, rgba(15, 23, 42, 0.50) 0%, rgba(15, 23, 42, 0.22) 60%, transparent 80%);
+            border-radius: 1.5rem;
+            padding: 1.5rem 1rem;
         }
         .banner-section-a {
             background-color: #d97706;
@@ -328,15 +339,15 @@
             
             <!-- 1. HERO BANNER (Google Sites Hero Layout) -->
             <div class="hero-banner text-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center justify-center shadow-md">
-                <div class="max-w-4xl mx-auto space-y-4">
-                    <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-white/15 backdrop-blur border border-white/25 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2">
+                <div class="max-w-4xl mx-auto space-y-4 hero-center-glow">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-slate-900/60 backdrop-blur border border-white/25 text-amber-300 text-xs font-bold uppercase tracking-wider mb-2 shadow-sm">
                         <i class="fa-solid fa-compass"></i>
                         <span>Sunbird Trust Educational Initiative</span>
                     </div>
-                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading tracking-tight text-white leading-tight drop-shadow-md">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold font-heading tracking-tight text-white leading-tight hero-text-shadow">
                         Sunbird Career & Education Resource Centre
                     </h1>
-                    <p class="text-xl sm:text-2xl text-blue-100 font-light italic tracking-wide">
+                    <p class="text-xl sm:text-2xl text-blue-100 font-light italic tracking-wide hero-subtext-shadow">
                         Explore. Learn. Plan Your Future.
                     </p>
                     <div class="pt-4 flex flex-wrap justify-center gap-3">
@@ -344,7 +355,7 @@
                             <i class="fa-solid fa-wand-magic-sparkles"></i>
                             <span>Smart Pathway Finder (Start Here)</span>
                         </button>
-                        <button onclick="scrollToSection('looking-for')" class="px-6 py-2.5 rounded-full bg-white/20 hover:bg-white/30 text-white font-semibold text-sm backdrop-blur border border-white/30 transition duration-200">
+                        <button onclick="scrollToSection('looking-for')" class="px-6 py-2.5 rounded-full bg-slate-900/50 hover:bg-slate-900/70 text-white font-semibold text-sm backdrop-blur border border-white/30 transition duration-200 shadow-md">
                             Explore Options Below <i class="fa-solid fa-arrow-down ml-1 text-xs"></i>
                         </button>
                     </div>
