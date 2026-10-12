@@ -105,8 +105,79 @@
             background: #94a3b8;
             border-radius: 4px;
         }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #64748b;
+        /* Modern Glassmorphic Navigation Menu */
+        .glass-nav-container {
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.96), rgba(15, 23, 42, 0.96));
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+        }
+        .dark .glass-nav-container {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+        }
+        .nav-glass-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.05rem;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            white-space: nowrap;
+            border-radius: 0.875rem;
+            background: rgba(255, 255, 255, 0.09);
+            color: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            letter-spacing: 0.01em;
+        }
+        .nav-glass-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+        }
+        .nav-glass-btn:active {
+            transform: translateY(0);
+        }
+        .nav-glass-btn.active, .nav-glass-btn.nav-glass-active {
+            background: #ffffff;
+            color: #1e3a8a;
+            font-weight: 700;
+            border-color: #ffffff;
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 14px rgba(255, 255, 255, 0.4);
+        }
+        .dark .nav-glass-btn.active, .dark .nav-glass-btn.nav-glass-active {
+            background: #2563eb;
+            color: #ffffff;
+            border-color: #60a5fa;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 16px rgba(37, 99, 235, 0.5);
+        }
+        .nav-glass-advisor {
+            background: rgba(245, 158, 11, 0.16);
+            border-color: rgba(245, 158, 11, 0.4);
+            color: #fef3c7;
+        }
+        .nav-glass-advisor:hover {
+            background: rgba(245, 158, 11, 0.28);
+            border-color: rgba(245, 158, 11, 0.6);
+            color: #ffffff;
+        }
+        .nav-glass-advisor.active, .nav-glass-advisor.nav-glass-active {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: #0f172a;
+            font-weight: 800;
+            border-color: #fde68a;
+            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4), 0 0 16px rgba(245, 158, 11, 0.5);
         }
     </style>
 </head>
@@ -150,32 +221,77 @@
             </div>
         </div>
 
-        <!-- Google Site Desktop Top Navigation Menu -->
-        <nav class="hidden lg:block bg-site-primary dark:bg-slate-950 text-white shadow-inner w-full border-t border-blue-900/50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto text-xs font-medium py-2 space-x-1 scrollbar-thin">
-                <button onclick="switchSection('home')" id="nav-home" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap bg-white/20 font-bold">🏠 Home</button>
-                <button onclick="switchSection('advisor')" id="nav-advisor" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap text-amber-300 font-semibold">🎯 Start Here (Advisor)</button>
-                <button onclick="switchSection('roadmap')" id="nav-roadmap" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">🎓 Stage Wise (11 to UG)</button>
-                <button onclick="switchSection('careers')" id="nav-careers" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">💼 Career Explorer</button>
-                <button onclick="switchSection('courses')" id="nav-courses" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">📚 Course Explorer</button>
-                <button onclick="switchSection('entrance')" id="nav-entrance" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">📝 Exam Centre</button>
-                <button onclick="switchSection('universities')" id="nav-universities" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">🏛️ University Guide</button>
-                <button onclick="switchSection('scholarships')" id="nav-scholarships" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">₹ Scholarship Centre</button>
-                <button onclick="switchSection('skills')" id="nav-skills" class="nav-link px-3 py-1.5 rounded-md hover:bg-white/10 transition whitespace-nowrap">🛠️ Skills Centre</button>
+        <!-- Modern Glassmorphic Desktop Top Navigation Menu -->
+        <nav class="hidden lg:block glass-nav-container text-white w-full">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto py-2.5 gap-2 scrollbar-thin">
+                <button onclick="switchSection('home')" id="nav-home" class="nav-glass-btn active">
+                    <span class="text-base leading-none">🏠</span>
+                    <span>Home</span>
+                </button>
+                <button onclick="switchSection('advisor')" id="nav-advisor" class="nav-glass-btn nav-glass-advisor">
+                    <span class="text-base leading-none">🎯</span>
+                    <span>Start Here (Advisor)</span>
+                </button>
+                <button onclick="switchSection('roadmap')" id="nav-roadmap" class="nav-glass-btn">
+                    <span class="text-base leading-none">🎓</span>
+                    <span>Stage Wise (11 to UG)</span>
+                </button>
+                <button onclick="switchSection('careers')" id="nav-careers" class="nav-glass-btn">
+                    <span class="text-base leading-none">💼</span>
+                    <span>Career Explorer</span>
+                </button>
+                <button onclick="switchSection('courses')" id="nav-courses" class="nav-glass-btn">
+                    <span class="text-base leading-none">📚</span>
+                    <span>Course Explorer</span>
+                </button>
+                <button onclick="switchSection('entrance')" id="nav-entrance" class="nav-glass-btn">
+                    <span class="text-base leading-none">📝</span>
+                    <span>Exam Centre</span>
+                </button>
+                <button onclick="switchSection('universities')" id="nav-universities" class="nav-glass-btn">
+                    <span class="text-base leading-none">🏛️</span>
+                    <span>University Guide</span>
+                </button>
+                <button onclick="switchSection('scholarships')" id="nav-scholarships" class="nav-glass-btn">
+                    <span class="text-base leading-none font-bold text-amber-300">₹</span>
+                    <span>Scholarship Centre</span>
+                </button>
+                <button onclick="switchSection('skills')" id="nav-skills" class="nav-glass-btn">
+                    <span class="text-base leading-none">🛠️</span>
+                    <span>Skills Centre</span>
+                </button>
             </div>
         </nav>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-slate-900 text-white px-4 pt-2 pb-4 space-y-1 border-b border-slate-800 text-sm">
-            <button onclick="switchSection('home')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800 font-bold">🏠 Home</button>
-            <button onclick="switchSection('advisor')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800 text-amber-300 font-bold">🎯 Start Here (Smart Pathway Finder)</button>
-            <button onclick="switchSection('roadmap')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">🎓 Stage Wise (Class 11 to UG)</button>
-            <button onclick="switchSection('careers')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">💼 Career Explorer</button>
-            <button onclick="switchSection('courses')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">📚 Course Explorer</button>
-            <button onclick="switchSection('entrance')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">📝 Exam Centre (Entrance & Govt)</button>
-            <button onclick="switchSection('universities')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">🏛️ University Guide</button>
-            <button onclick="switchSection('scholarships')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">₹ Scholarship Centre</button>
-            <button onclick="switchSection('skills')" class="block w-full text-left px-3 py-2 rounded-md hover:bg-slate-800">🛠️ Skills Centre & Checklist</button>
+        <!-- Mobile Menu Drawer with Modern Glass Cards -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-slate-900/95 backdrop-blur-xl text-white px-4 pt-3 pb-5 space-y-2 border-b border-slate-800 text-sm shadow-xl">
+            <button onclick="switchSection('home')" id="mobile-nav-home" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl bg-site-primary font-bold transition">
+                <span>🏠</span><span>Home</span>
+            </button>
+            <button onclick="switchSection('advisor')" id="mobile-nav-advisor" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-amber-300 font-bold transition">
+                <span>🎯</span><span>Start Here (Smart Pathway Finder)</span>
+            </button>
+            <button onclick="switchSection('roadmap')" id="mobile-nav-roadmap" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <span>🎓</span><span>Stage Wise (Class 11 to UG)</span>
+            </button>
+            <button onclick="switchSection('careers')" id="mobile-nav-careers" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <span>💼</span><span>Career Explorer</span>
+            </button>
+            <button onclick="switchSection('courses')" id="mobile-nav-courses" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <span>📚</span><span>Course Explorer</span>
+            </button>
+            <button onclick="switchSection('entrance')" id="mobile-nav-entrance" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <span>📝</span><span>Exam Centre (Entrance & Govt)</span>
+            </button>
+            <button onclick="switchSection('universities')" id="mobile-nav-universities" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <span>🏛️</span><span>University Guide</span>
+            </button>
+            <button onclick="switchSection('scholarships')" id="mobile-nav-scholarships" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <span class="text-amber-300 font-bold">₹</span><span>Scholarship Centre</span>
+            </button>
+            <button onclick="switchSection('skills')" id="mobile-nav-skills" class="mobile-nav-btn flex items-center space-x-2.5 w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-slate-800 text-slate-300 transition">
+                <span>🛠️</span><span>Skills Centre & Checklist</span>
+            </button>
         </div>
     </header>
 
@@ -1532,11 +1648,21 @@
             const activeSection = document.getElementById(`section-${sectionId}`);
             if (activeSection) activeSection.classList.remove('hidden');
 
-            document.querySelectorAll('.nav-link').forEach(btn => {
-                btn.classList.remove('bg-white/20', 'font-bold');
+            document.querySelectorAll('.nav-glass-btn').forEach(btn => {
+                btn.classList.remove('active', 'nav-glass-active');
             });
             const activeBtn = document.getElementById(`nav-${sectionId}`);
-            if (activeBtn) activeBtn.classList.add('bg-white/20', 'font-bold');
+            if (activeBtn) activeBtn.classList.add('active', 'nav-glass-active');
+
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                btn.classList.remove('bg-site-primary', 'font-bold');
+                btn.classList.add('text-slate-300');
+            });
+            const activeMobileBtn = document.getElementById(`mobile-nav-${sectionId}`);
+            if (activeMobileBtn) {
+                activeMobileBtn.classList.add('bg-site-primary', 'font-bold');
+                activeMobileBtn.classList.remove('text-slate-300');
+            }
 
             const mobileMenu = document.getElementById('mobileMenu');
             if (mobileMenu) mobileMenu.classList.add('hidden');
