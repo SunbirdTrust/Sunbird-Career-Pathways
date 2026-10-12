@@ -105,7 +105,7 @@
             background: #94a3b8;
             border-radius: 4px;
         }
-        /* Modern Glassmorphic Navigation Menu */
+        /* Modern Glassmorphic Navigation Menu (Fits full screen, zero horizontal scroll) */
         .glass-nav-container {
             background: linear-gradient(135deg, rgba(30, 58, 138, 0.96), rgba(15, 23, 42, 0.96));
             backdrop-filter: blur(12px);
@@ -113,6 +113,7 @@
             border-top: 1px solid rgba(255, 255, 255, 0.12);
             border-bottom: 1px solid rgba(0, 0, 0, 0.2);
             box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.25);
+            overflow: hidden;
         }
         .dark .glass-nav-container {
             background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(2, 6, 23, 0.98));
@@ -122,28 +123,39 @@
         .nav-glass-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 0.6rem 1.05rem;
-            font-size: 0.8125rem;
+            justify-content: center;
+            gap: 0.35rem;
+            padding: 0.55rem 0.5rem;
+            font-size: 0.76rem;
             font-weight: 600;
             white-space: nowrap;
-            border-radius: 0.875rem;
+            border-radius: 0.75rem;
             background: rgba(255, 255, 255, 0.09);
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.92);
             border: 1px solid rgba(255, 255, 255, 0.16);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.18);
-            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
             cursor: pointer;
-            letter-spacing: 0.01em;
+            flex: 1 1 0%;
+            min-width: 0;
+            text-align: center;
+        }
+        @media (min-width: 1280px) {
+            .nav-glass-btn {
+                padding: 0.6rem 0.75rem;
+                font-size: 0.8125rem;
+                gap: 0.45rem;
+                border-radius: 0.875rem;
+            }
         }
         .nav-glass-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.22);
             color: #ffffff;
             border-color: rgba(255, 255, 255, 0.35);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.3);
         }
         .nav-glass-btn:active {
             transform: translateY(0);
@@ -154,22 +166,22 @@
             font-weight: 700;
             border-color: #ffffff;
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 0 0 14px rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.22), 0 0 12px rgba(255, 255, 255, 0.45);
         }
         .dark .nav-glass-btn.active, .dark .nav-glass-btn.nav-glass-active {
             background: #2563eb;
             color: #ffffff;
             border-color: #60a5fa;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35), 0 0 16px rgba(37, 99, 235, 0.5);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 14px rgba(37, 99, 235, 0.5);
         }
         .nav-glass-advisor {
-            background: rgba(245, 158, 11, 0.16);
-            border-color: rgba(245, 158, 11, 0.4);
+            background: rgba(245, 158, 11, 0.18);
+            border-color: rgba(245, 158, 11, 0.45);
             color: #fef3c7;
         }
         .nav-glass-advisor:hover {
-            background: rgba(245, 158, 11, 0.28);
-            border-color: rgba(245, 158, 11, 0.6);
+            background: rgba(245, 158, 11, 0.3);
+            border-color: rgba(245, 158, 11, 0.65);
             color: #ffffff;
         }
         .nav-glass-advisor.active, .nav-glass-advisor.nav-glass-active {
@@ -177,7 +189,7 @@
             color: #0f172a;
             font-weight: 800;
             border-color: #fde68a;
-            box-shadow: 0 6px 20px rgba(217, 119, 6, 0.4), 0 0 16px rgba(245, 158, 11, 0.5);
+            box-shadow: 0 4px 14px rgba(217, 119, 6, 0.4), 0 0 12px rgba(245, 158, 11, 0.5);
         }
     </style>
 </head>
@@ -221,44 +233,44 @@
             </div>
         </div>
 
-        <!-- Modern Glassmorphic Desktop Top Navigation Menu -->
+        <!-- Modern Glassmorphic Desktop Top Navigation Menu (Full Width, Zero Horizontal Scroll) -->
         <nav class="hidden lg:block glass-nav-container text-white w-full">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between overflow-x-auto py-2.5 gap-2 scrollbar-thin">
-                <button onclick="switchSection('home')" id="nav-home" class="nav-glass-btn active">
-                    <span class="text-base leading-none">🏠</span>
+            <div class="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 flex items-center justify-between py-2 gap-1 xl:gap-2">
+                <button onclick="switchSection('home')" id="nav-home" class="nav-glass-btn active" title="Home">
+                    <span>🏠</span>
                     <span>Home</span>
                 </button>
-                <button onclick="switchSection('advisor')" id="nav-advisor" class="nav-glass-btn nav-glass-advisor">
-                    <span class="text-base leading-none">🎯</span>
-                    <span>Start Here (Advisor)</span>
+                <button onclick="switchSection('advisor')" id="nav-advisor" class="nav-glass-btn nav-glass-advisor" title="Start Here (Advisor)">
+                    <span>🎯</span>
+                    <span>Start Here</span>
                 </button>
-                <button onclick="switchSection('roadmap')" id="nav-roadmap" class="nav-glass-btn">
-                    <span class="text-base leading-none">🎓</span>
-                    <span>Stage Wise (11 to UG)</span>
+                <button onclick="switchSection('roadmap')" id="nav-roadmap" class="nav-glass-btn" title="Stage Wise (Class 11 to UG)">
+                    <span>🎓</span>
+                    <span>Stage Wise</span>
                 </button>
-                <button onclick="switchSection('careers')" id="nav-careers" class="nav-glass-btn">
-                    <span class="text-base leading-none">💼</span>
-                    <span>Career Explorer</span>
+                <button onclick="switchSection('careers')" id="nav-careers" class="nav-glass-btn" title="Career Explorer">
+                    <span>💼</span>
+                    <span>Careers</span>
                 </button>
-                <button onclick="switchSection('courses')" id="nav-courses" class="nav-glass-btn">
-                    <span class="text-base leading-none">📚</span>
-                    <span>Course Explorer</span>
+                <button onclick="switchSection('courses')" id="nav-courses" class="nav-glass-btn" title="Course Explorer">
+                    <span>📚</span>
+                    <span>Courses</span>
                 </button>
-                <button onclick="switchSection('entrance')" id="nav-entrance" class="nav-glass-btn">
-                    <span class="text-base leading-none">📝</span>
-                    <span>Exam Centre</span>
+                <button onclick="switchSection('entrance')" id="nav-entrance" class="nav-glass-btn" title="National Entrance & Govt Exams">
+                    <span>📝</span>
+                    <span>Exams</span>
                 </button>
-                <button onclick="switchSection('universities')" id="nav-universities" class="nav-glass-btn">
-                    <span class="text-base leading-none">🏛️</span>
-                    <span>University Guide</span>
+                <button onclick="switchSection('universities')" id="nav-universities" class="nav-glass-btn" title="University Guide">
+                    <span>🏛️</span>
+                    <span>Universities</span>
                 </button>
-                <button onclick="switchSection('scholarships')" id="nav-scholarships" class="nav-glass-btn">
-                    <span class="text-base leading-none font-bold text-amber-300">₹</span>
-                    <span>Scholarship Centre</span>
+                <button onclick="switchSection('scholarships')" id="nav-scholarships" class="nav-glass-btn" title="Scholarship Centre">
+                    <span class="font-bold text-amber-300">₹</span>
+                    <span>Scholarships</span>
                 </button>
-                <button onclick="switchSection('skills')" id="nav-skills" class="nav-glass-btn">
-                    <span class="text-base leading-none">🛠️</span>
-                    <span>Skills Centre</span>
+                <button onclick="switchSection('skills')" id="nav-skills" class="nav-glass-btn" title="Skills Centre & Checklist">
+                    <span>🛠️</span>
+                    <span>Skills</span>
                 </button>
             </div>
         </nav>
