@@ -1,4 +1,4 @@
-# 📋 How to Embed the Wayfinder Web Portal in Google Sites
+﻿# 📋 How to Embed the Pathfinder Web Portal in Google Sites
 
 Yes, this source code can be embedded directly into **Google Sites**!
 

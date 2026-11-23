@@ -1,9 +1,9 @@
-// ==========================================================================
-// WAYFINDER CAREER FLOWCHART - FULL DATA & ENGINE (Based on Source Document)
-// Source: "Wayfinder - A career and education Resource Centre(1).docx"
+﻿// ==========================================================================
+// PATHFINDER CAREER FLOWCHART - FULL DATA & ENGINE (Based on Source Document)
+// Source: "Pathfinder - A career and education Resource Centre(1).docx"
 // ==========================================================================
 
-const WAYFINDER_EXAMS = {
+const PATHFINDER_EXAMS = {
     'neet_ug': {
         id: 'neet_ug',
         name: 'NEET UG',
@@ -455,7 +455,7 @@ const WAYFINDER_EXAMS = {
     }
 };
 
-const WAYFINDER_PATHWAYS = [
+const PATHFINDER_PATHWAYS = [
     {
         id: 'doctor',
         title: 'Medical Specialist / Surgeon (Doctor)',
@@ -706,9 +706,160 @@ const WAYFINDER_PATHWAYS = [
         step3: '5-Year Integrated LL.B. (BA LL.B. / BBA LL.B.)',
         exams: ['clat']
     }
+    ,
+    {
+        id: 'veterinarian',
+        title: 'Veterinarian (Veterinary Surgeon)',
+        category: 'science',
+        icon: '🐾',
+        step1: 'Science (PCB): Physics, Chemistry, Biology',
+        step2: 'NEET-UG, AIPVT (All India Pre-Veterinary Test), State Veterinary CETs',
+        step3: 'B.V.Sc & A.H. (Bachelor of Veterinary Science and Animal Husbandry)',
+        exams: ['neet_ug']
+    },
+    {
+        id: 'aerospace',
+        title: 'Aerospace Engineer',
+        category: 'science',
+        icon: '🚀',
+        step1: 'Science (PCM): Physics, Chemistry, Mathematics',
+        step2: 'JEE Main, JEE Advanced, BITSAT, IIST Entrance',
+        step3: 'B.Tech / B.E. in Aerospace or Aeronautical Engineering',
+        exams: ['jee_mains', 'jee_adv']
+    },
+    {
+        id: 'robotics',
+        title: 'Robotics & Mechatronics Engineer',
+        category: 'science',
+        icon: '🦾',
+        step1: 'Science (PCM): Physics, Chemistry, Mathematics',
+        step2: 'JEE Main, JEE Advanced, State CETs',
+        step3: 'B.Tech in Robotics / Mechatronics / Automation Engineering',
+        exams: ['jee_mains', 'jee_adv']
+    },
+    {
+        id: 'economist_policy',
+        title: 'Economist / Public Policy Analyst',
+        category: 'commerce',
+        icon: '📊',
+        step1: 'Commerce, Humanities, or Science (Mathematics is strictly mandatory for top colleges)',
+        step2: 'CUET-UG, SET (Symbiosis), NPAT',
+        step3: 'B.A. (Hons) or B.Sc. (Hons) in Economics',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'journalist',
+        title: 'Journalist / Mass Communication Specialist',
+        category: 'arts',
+        icon: '📰',
+        step1: 'Any Stream (Humanities preferred; strong reading and writing skills required)',
+        step2: 'CUET-UG, JMI Entrance Exam, IIMC Entrance (for PG), SET',
+        step3: 'B.A. in Journalism & Mass Communication (BJMC)',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'sustainability_consultant',
+        title: 'Sustainability Consultant / Climate Analyst',
+        category: 'science',
+        icon: '🌱',
+        step1: 'Science (PCB/PCM) for technical roles; Any Stream for policy roles',
+        step2: 'CUET-UG, University-specific entrance exams',
+        step3: 'B.Sc. in Environmental Science, or B.A. in Environmental Studies/Policy',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'sports_management',
+        title: 'Sports Management Professional',
+        category: 'commerce',
+        icon: '🏅',
+        step1: 'Any Stream',
+        step2: 'CUET-UG, SMAT (Sports Management Admission Test), IISM Entrance',
+        step3: 'BBA or B.Sc. in Sports Management',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'forensic_scientist',
+        title: 'Forensic Scientist',
+        category: 'science',
+        icon: '🔬',
+        step1: 'Science (PCB or PCM)',
+        step2: 'CUET-UG, NFAT (National Forensic Admission Test)',
+        step3: 'B.Sc. in Forensic Science',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'sports_marketing',
+        title: 'Sports Management & Marketing Professional',
+        category: 'commerce',
+        icon: '🏟️',
+        step1: 'Any Stream (Commerce or Humanities preferred for marketing and management)',
+        step2: 'CUET-UG, SMAT (Sports Management Admission Test), Institute-specific exams',
+        step3: 'BBA or B.Sc. in Sports Management',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'sports_data_analyst',
+        title: 'Sports Data & Performance Analyst',
+        category: 'science',
+        icon: '📈',
+        step1: 'Science (PCM) or Commerce with Mathematics (highly recommended)',
+        step2: 'CUET-UG, JEE Main (for Tech degrees), State CETs',
+        step3: 'B.Sc. in Sports Science, Data Science, or B.Tech',
+        exams: ['cuet_ug', 'jee_mains']
+    },
+    {
+        id: 'sports_medicine',
+        title: 'Sports Medicine / Physiotherapist',
+        category: 'science',
+        icon: '🏃',
+        step1: 'Science (PCB): Physics, Chemistry, Biology',
+        step2: 'NEET-UG, State Paramedical/Medical CETs',
+        step3: 'BPT (Bachelor of Physiotherapy) or MBBS followed by MD in Sports Medicine',
+        exams: ['neet_ug']
+    },
+    {
+        id: 'csr_manager',
+        title: 'CSR (Corporate Social Responsibility) Manager',
+        category: 'commerce',
+        icon: '🤝',
+        step1: 'Any Stream (Humanities or Commerce provides a strong foundation)',
+        step2: 'CUET-UG (followed by MSW or MBA entrances like CAT)',
+        step3: 'BSW (Bachelor of Social Work), BBA, or B.A. in Social Sciences',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'psychiatric_social_worker',
+        title: 'Medical & Psychiatric Social Worker',
+        category: 'arts',
+        icon: '🧠',
+        step1: 'Any Stream (Humanities with Psychology or Sociology is highly beneficial)',
+        step2: 'CUET-UG, University-specific BSW entrances',
+        step3: 'BSW followed by MSW (Master of Social Work) with Psychiatric Specialization',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'm_and_e_officer',
+        title: 'Monitoring & Evaluation (M&E) Officer',
+        category: 'arts',
+        icon: '📋',
+        step1: 'Any Stream (Mathematics or Statistics is critical for data analysis)',
+        step2: 'CUET-UG, ISI Admission Test',
+        step3: 'B.A. / B.Sc. in Economics, Statistics, or Development Studies',
+        exams: ['cuet_ug']
+    },
+    {
+        id: 'international_dev',
+        title: 'International Development Professional (UN, World Bank)',
+        category: 'arts',
+        icon: '🌐',
+        step1: 'Any Stream (Humanities with Political Science or Economics preferred)',
+        step2: 'CUET-UG',
+        step3: 'B.A. in International Relations, Political Science, or Development Studies',
+        exams: ['cuet_ug']
+    }
 ];
 
-const WAYFINDER_ROLES = {
+const PATHFINDER_ROLES = {
     science: [
         'Doctor', 'Engineer', 'Nurse', 'Scientist', 'Lab technician', 'Biotechnologist', 
         'Microbiologist', 'Genetecist', 'Physicist', 'Chemist', 'Forensic Scientist', 
@@ -835,10 +986,10 @@ function renderFlowchart() {
                                     <h4 class="text-xl font-bold font-heading text-slate-900 dark:text-white group-hover:text-site-primary dark:group-hover:text-blue-400 transition">
                                         Higher Secondary
                                     </h4>
-                                    <span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-bold">Class 11 & 12</span>
+                                    <span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 font-bold">Higher Secondary</span>
                                 </div>
                                 <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
-                                    Explore stream choices (Science, Commerce, Arts), Class 12 government jobs, entrance exams, and 25 step-by-step career pathways.
+                                    Explore stream choices (Science, Commerce, Arts), Class 12 government jobs, entrance exams, and 40 step-by-step career pathways.
                                 </p>
                             </div>
                             <div class="flex flex-wrap gap-1.5 pt-1">
@@ -896,7 +1047,7 @@ function renderFlowchart() {
                                     <h4 class="text-xl font-bold font-heading text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">
                                         Post-Graduation
                                     </h4>
-                                    <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold">Doc: "yet to update"</span>
+                                    <span class="text-[11px] px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300 font-bold">"yet to update"</span>
                                 </div>
                                 <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-2 leading-relaxed">
                                     Advanced doctoral, super-specialization, judicial services, and licensed clinical research routes supported in the document.
@@ -943,10 +1094,10 @@ function renderFlowchart() {
                 <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
                     <span class="text-xs font-bold uppercase tracking-wider text-site-primary dark:text-blue-400">Gateway 1</span>
                     <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
-                        🎒 Higher Secondary (Class 11 & 12) Pathways
+                        🎒 Higher Secondary Pathways
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Choose an academic stream, browse government employment directly after Class 12, or explore all 25 step-by-step career pathways.
+                        Choose an academic stream, browse government employment directly after Class 12, or explore all 40 step-by-step career pathways.
                     </p>
                 </div>
 
@@ -1006,10 +1157,10 @@ function renderFlowchart() {
                     </div>
 
                     <!-- Class 12 Employment Branch -->
-                    <div role="button" tabindex="0" onclick="fcPush('hs_employment', 'Class 12 Employment Options', '💼')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_employment', 'Class 12 Employment Options', '💼');}" class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                    <div role="button" tabindex="0" onclick="fcPush('hs_employment', 'Employment Exams after Class 12', '💼')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_employment', 'Employment Exams after Class 12', '💼');}" class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
                         <div class="space-y-3">
                             <div class="text-3xl">💼</div>
-                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white">Direct Employment after Class 12</h4>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white">Examination for Employment after Class 12</h4>
                             <p class="text-xs text-slate-600 dark:text-slate-400">
                                 Government recruitment examinations open directly to 12th pass applicants (NDA & NA, SSC CHSL, GD, MTS, Railway NTPC).
                             </p>
@@ -1024,10 +1175,10 @@ function renderFlowchart() {
                     </div>
 
                     <!-- 25 Career Pathways -->
-                    <div role="button" tabindex="0" onclick="fcPush('hs_pathways', '25 Career Pathways', '🧭')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_pathways', '25 Career Pathways', '🧭');}" class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between md:col-span-2">
+                    <div role="button" tabindex="0" onclick="fcPush('hs_pathways', '40 Career Pathways', '🧭')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_pathways', '40 Career Pathways', '🧭');}" class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between md:col-span-2">
                         <div class="space-y-3">
                             <div class="text-3xl">🧭</div>
-                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white">All 25 Interactive Step-by-Step Pathways</h4>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white">All 40 Interactive Step-by-Step Pathways</h4>
                             <p class="text-xs text-slate-600 dark:text-slate-400">
                                 Complete 3-step roadmaps: Step 1 (Class 12 Subjects) ➔ Step 2 (Entrance Examinations) ➔ Step 3 (Degree & Qualification).
                             </p>
@@ -1036,7 +1187,7 @@ function renderFlowchart() {
                             </div>
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-indigo-600 dark:text-indigo-400">
-                            <span>Browse 25 Step-by-Step Pathways</span>
+                            <span>Browse 40 Step-by-Step Pathways</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </div>
                     </div>
@@ -1130,7 +1281,7 @@ function renderFlowchart() {
                         🏛️ Post-Graduation Pathways & Higher Specialization
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Advanced research, doctoral routes, super-specializations, and professional licenses documented in the Wayfinder source text.
+                        Advanced research, doctoral routes, super-specializations, and professional licenses documented in the Pathfinder source text.
                     </p>
                 </div>
 
@@ -1138,9 +1289,9 @@ function renderFlowchart() {
                 <div class="p-4 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex items-start space-x-3">
                     <span class="text-2xl text-amber-600 dark:text-amber-400 shrink-0">⚠️</span>
                     <div class="space-y-1 text-xs sm:text-sm text-amber-900 dark:text-amber-300">
-                        <p class="font-bold">Source Document Clarification Note: "Post Graduation (yet to update)"</p>
+                        <p class="font-bold">Post Graduation ("yet to update")</p>
                         <p class="text-xs leading-relaxed text-amber-800 dark:text-amber-400">
-                            In the reference document <em>“Wayfinder - A career and education Resource Centre(1).docx”</em>, the dedicated section header for Post-Graduation is marked as <strong>“Post Graduation (yet to update)”</strong>. The options below represent the verified post-graduate entrance exams, doctoral admissions, and specialized professional practice credentials detailed across the document's pathway matrix. Additional post-graduate curricula will be updated upon confirmation.
+                            The options below represent the verified post-graduate entrance exams, doctoral admissions, and specialized professional practice credentials detailed across the resource centre's pathway matrix. Additional post-graduate curricula will be updated upon confirmation.
                         </p>
                     </div>
                 </div>
@@ -1228,166 +1379,523 @@ function renderFlowchart() {
         return;
     }
 
-    // LEVEL 2: SCIENCE STREAM (Higher Secondary)
+    // LEVEL 2: SCIENCE STREAM (Higher Secondary) - SELECTION MENU
     if (currentStep.id === 'hs_science') {
         const scienceExamIds = ['neet_ug', 'jee_mains', 'jee_adv', 'iat', 'nest', 'nata', 'uceed', 'nid_dat', 'cuet_ug', 'nda_na', 'nift', 'ipmat', 'nchm_jee', 'ncet'];
-        const sciencePathways = WAYFINDER_PATHWAYS.filter(p => p.category === 'science');
-        const scienceRoles = WAYFINDER_ROLES.science;
+        const sciencePathways = PATHFINDER_PATHWAYS.filter(p => p.category === 'science');
+        const scienceRoles = PATHFINDER_ROLES.science;
 
         stage.innerHTML = `
             <div class="space-y-6">
                 <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-                    <span class="text-xs font-bold uppercase tracking-wider text-site-primary dark:text-blue-400">Higher Secondary</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-site-primary dark:text-blue-400">Higher Secondary Stream</span>
                     <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
                         🔬 Science Stream (PCM / PCB / PCMB)
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Official entrance examinations, step-by-step career pathways, and role opportunities directly supported by the source document.
+                        Select whether you want to explore Entrance Examinations, Step-by-Step Career Pathways, or the Careers Directory:
                     </p>
                 </div>
 
-                <!-- Section A: Entrance Exams -->
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>📝</span><span>Entrance Examinations for Science Stream</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${scienceExamIds.length} Exams Documented</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <!-- Option 1: Entrance Examinations -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_science_exams', 'Entrance Examinations', '📝')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_science_exams', 'Entrance Examinations', '📝');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-site-primary dark:hover:border-blue-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-900/40 text-site-primary dark:text-blue-400 flex items-center justify-center text-2xl font-bold">
+                                📝
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-site-primary dark:group-hover:text-blue-400 transition">
+                                Entrance Examinations
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Explore official entrance exams (NEET UG, JEE Main, JEE Advanced, IAT, NEST, NATA, etc.) with conducting authority, eligibility, syllabus, and tentative dates.
+                            </p>
+                            <div class="text-[11px] font-bold text-site-primary dark:text-blue-400">
+                                ${scienceExamIds.length} Documented Entrance Exams
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-site-primary dark:text-blue-400">
+                            <span>Explore Entrance Exams</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderExamGrid(scienceExamIds)}
-                </div>
 
-                <!-- Section B: Step-by-Step Pathways -->
-                <div class="space-y-3 pt-4">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>🧭</span><span>Step-by-Step Career Pathways (Science)</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${sciencePathways.length} Pathways Documented</span>
+                    <!-- Option 2: Step-by-Step Career Pathways -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_science_pathways', 'Step-by-Step Pathways', '🧭')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_science_pathways', 'Step-by-Step Pathways', '🧭');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl font-bold">
+                                🧭
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition">
+                                Step-by-Step Career Pathways
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Interactive 3-step roadmaps (Doctor, AI/ML, Veterinarian, Aerospace Engineer, Data Science, etc.) mapping Class 11-12 subjects to entrance exams and target degrees.
+                            </p>
+                            <div class="text-[11px] font-bold text-indigo-600 dark:text-indigo-400">
+                                ${sciencePathways.length} Documented Pathways
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-indigo-600 dark:text-indigo-400">
+                            <span>Browse Step-by-Step Pathways</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderPathwayGrid(sciencePathways)}
-                </div>
 
-                <!-- Section C: Career Directory -->
-                <div class="space-y-3 pt-4">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>💼</span><span>Science Careers & Roles Directory</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${scienceRoles.length} Roles Listed in Document</span>
+                    <!-- Option 3: Careers & Roles Directory -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_science_roles', 'Careers Directory', '💼')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_science_roles', 'Careers Directory', '💼');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-2xl font-bold">
+                                💼
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">
+                                Careers & Roles Directory
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Comprehensive catalog of all ${scienceRoles.length} science-based professional career roles, technologies, and specializations listed in the handbook.
+                            </p>
+                            <div class="text-[11px] font-bold text-purple-600 dark:text-purple-400">
+                                ${scienceRoles.length} Documented Career Roles
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-purple-600 dark:text-purple-400">
+                            <span>View Roles Directory</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderRolesList(scienceRoles, 'blue')}
                 </div>
             </div>
         `;
         return;
     }
 
-    // LEVEL 2: COMMERCE STREAM (Higher Secondary)
+    // LEVEL 3: SCIENCE ENTRANCE EXAMINATIONS
+    if (currentStep.id === 'hs_science_exams') {
+        const scienceExamIds = ['neet_ug', 'jee_mains', 'jee_adv', 'iat', 'nest', 'nata', 'uceed', 'nid_dat', 'cuet_ug', 'nda_na', 'nift', 'ipmat', 'nchm_jee', 'ncet'];
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-site-primary dark:text-blue-400">Science Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            📝 Entrance Examinations (Science Stream)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            Official entrance examinations with eligibility, authority, exam frequency, and syllabus details.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Science Options</span>
+                    </button>
+                </div>
+                ${renderExamGrid(scienceExamIds)}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 3: SCIENCE STEP-BY-STEP CAREER PATHWAYS
+    if (currentStep.id === 'hs_science_pathways') {
+        const sciencePathways = PATHFINDER_PATHWAYS.filter(p => p.category === 'science');
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Science Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            🧭 Step-by-Step Career Pathways (Science)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            Chronological 3-step roadmaps: Class 11-12 Subjects → Entrance Examinations → Degree & Qualification.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Science Options</span>
+                    </button>
+                </div>
+                ${renderPathwayGrid(sciencePathways)}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 3: SCIENCE CAREERS DIRECTORY
+    if (currentStep.id === 'hs_science_roles') {
+        const scienceRoles = PATHFINDER_ROLES.science;
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Science Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            💼 Science Careers & Roles Directory
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            All ${scienceRoles.length} science-based professional career roles listed in the handbook.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Science Options</span>
+                    </button>
+                </div>
+                ${renderRolesList(scienceRoles, 'blue')}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 2: COMMERCE STREAM (Higher Secondary) - SELECTION MENU
     if (currentStep.id === 'hs_commerce') {
         const commExamIds = ['cuet_ug', 'ipmat', 'ca', 'clat', 'ailet', 'nid_dat', 'uceed', 'nift', 'nchm_jee', 'ncet', 'rrb_ntpc'];
-        const commPathways = WAYFINDER_PATHWAYS.filter(p => p.category === 'commerce');
-        const commRoles = WAYFINDER_ROLES.commerce;
+        const commPathways = PATHFINDER_PATHWAYS.filter(p => p.category === 'commerce');
+        const commRoles = PATHFINDER_ROLES.commerce;
 
         stage.innerHTML = `
             <div class="space-y-6">
                 <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-                    <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Higher Secondary</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Higher Secondary Stream</span>
                     <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
                         📊 Commerce Stream
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Finance, accounting, management, and business administration routes supported in the resource document.
+                        Select whether you want to explore Entrance Examinations, Step-by-Step Career Pathways, or the Careers Directory:
                     </p>
                 </div>
 
-                <!-- Section A: Entrance Exams -->
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>📝</span><span>Entrance Examinations for Commerce Stream</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${commExamIds.length} Exams Documented</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <!-- Option 1: Entrance Examinations -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_commerce_exams', 'Entrance Examinations', '📝')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_commerce_exams', 'Entrance Examinations', '📝');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-amber-500 dark:hover:border-amber-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-amber-50 dark:bg-amber-900/40 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl font-bold">
+                                📝
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition">
+                                Entrance Examinations
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Explore official entrance exams (CUET UG, IPMAT, CA Foundation, CLAT, etc.) for finance, management, and professional courses.
+                            </p>
+                            <div class="text-[11px] font-bold text-amber-600 dark:text-amber-400">
+                                ${commExamIds.length} Documented Entrance Exams
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-amber-600 dark:text-amber-400">
+                            <span>Explore Entrance Exams</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderExamGrid(commExamIds)}
-                </div>
 
-                <!-- Section B: Step-by-Step Pathways -->
-                <div class="space-y-3 pt-4">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>🧭</span><span>Step-by-Step Career Pathways (Commerce)</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${commPathways.length} Pathways Documented</span>
+                    <!-- Option 2: Step-by-Step Career Pathways -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_commerce_pathways', 'Step-by-Step Pathways', '🧭')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_commerce_pathways', 'Step-by-Step Pathways', '🧭');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl font-bold">
+                                🧭
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition">
+                                Step-by-Step Career Pathways
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Interactive 3-step roadmaps (Chartered Accountant, Investment Banker, Economist, Sports Management, CSR Manager, Actuary, etc.).
+                            </p>
+                            <div class="text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
+                                ${commPathways.length} Documented Pathways
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                            <span>Browse Step-by-Step Pathways</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderPathwayGrid(commPathways)}
-                </div>
 
-                <!-- Section C: Career Directory -->
-                <div class="space-y-3 pt-4">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>💼</span><span>Commerce Careers & Roles Directory</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${commRoles.length} Roles Listed in Document</span>
+                    <!-- Option 3: Careers & Roles Directory -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_commerce_roles', 'Careers Directory', '💼')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_commerce_roles', 'Careers Directory', '💼');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl font-bold">
+                                💼
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition">
+                                Careers & Roles Directory
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Complete directory of all ${commRoles.length} commerce, accounting, finance, and corporate management career roles.
+                            </p>
+                            <div class="text-[11px] font-bold text-teal-600 dark:text-teal-400">
+                                ${commRoles.length} Documented Career Roles
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-teal-600 dark:text-teal-400">
+                            <span>View Roles Directory</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderRolesList(commRoles, 'amber')}
                 </div>
             </div>
         `;
         return;
     }
 
-    // LEVEL 2: ARTS & HUMANITIES STREAM (Higher Secondary)
+    // LEVEL 3: COMMERCE ENTRANCE EXAMINATIONS
+    if (currentStep.id === 'hs_commerce_exams') {
+        const commExamIds = ['cuet_ug', 'ipmat', 'ca', 'clat', 'ailet', 'nid_dat', 'uceed', 'nift', 'nchm_jee', 'ncet', 'rrb_ntpc'];
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-amber-600 dark:text-amber-400">Commerce Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            📝 Entrance Examinations (Commerce Stream)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            National examinations for accounting, commerce, business management, law, and design admissions.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Commerce Options</span>
+                    </button>
+                </div>
+                ${renderExamGrid(commExamIds)}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 3: COMMERCE STEP-BY-STEP CAREER PATHWAYS
+    if (currentStep.id === 'hs_commerce_pathways') {
+        const commPathways = PATHFINDER_PATHWAYS.filter(p => p.category === 'commerce');
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Commerce Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            🧭 Step-by-Step Career Pathways (Commerce)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            Interactive 3-step roadmaps: Class 11-12 Subjects → Key Entrance Exams → Degree & Professional Qualifications.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Commerce Options</span>
+                    </button>
+                </div>
+                ${renderPathwayGrid(commPathways)}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 3: COMMERCE CAREERS DIRECTORY
+    if (currentStep.id === 'hs_commerce_roles') {
+        const commRoles = PATHFINDER_ROLES.commerce;
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400">Commerce Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            💼 Commerce Careers & Roles Directory
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            All ${commRoles.length} commerce, finance, and management career roles listed in the handbook.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Commerce Options</span>
+                    </button>
+                </div>
+                ${renderRolesList(commRoles, 'amber')}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 2: ARTS & HUMANITIES STREAM (Higher Secondary) - SELECTION MENU
     if (currentStep.id === 'hs_arts') {
         const artsExamIds = ['cuet_ug', 'clat', 'ailet', 'nid_dat', 'uceed', 'nift', 'nchm_jee', 'ncet', 'ssc_chsl', 'rrb_ntpc', 'ssc_gd'];
-        const artsPathways = WAYFINDER_PATHWAYS.filter(p => p.category === 'arts');
-        const artsRoles = WAYFINDER_ROLES.arts;
+        const artsPathways = PATHFINDER_PATHWAYS.filter(p => p.category === 'arts');
+        const artsRoles = PATHFINDER_ROLES.arts;
 
         stage.innerHTML = `
             <div class="space-y-6">
                 <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-                    <span class="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">Higher Secondary</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">Higher Secondary Stream</span>
                     <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
                         🎨 Arts & Humanities Stream
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Law, design, psychology, journalism, media, hospitality, and social policy pathways from the source document.
+                        Select whether you want to explore Entrance Examinations, Step-by-Step Career Pathways, or the Careers Directory:
                     </p>
                 </div>
 
-                <!-- Section A: Entrance Exams -->
-                <div class="space-y-3">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>📝</span><span>Entrance Examinations for Arts & Humanities Stream</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${artsExamIds.length} Exams Documented</span>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                    <!-- Option 1: Entrance Examinations -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_arts_exams', 'Entrance Examinations', '📝')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_arts_exams', 'Entrance Examinations', '📝');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-rose-500 dark:hover:border-rose-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-rose-50 dark:bg-rose-900/40 text-rose-600 dark:text-rose-400 flex items-center justify-center text-2xl font-bold">
+                                📝
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-rose-600 dark:group-hover:text-rose-400 transition">
+                                Entrance Examinations
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Explore national entrance exams (CLAT, AILET, CUET UG, NID DAT, NIFT, NCHM JEE, etc.) for law, design, journalism, and hospitality.
+                            </p>
+                            <div class="text-[11px] font-bold text-rose-600 dark:text-rose-400">
+                                ${artsExamIds.length} Documented Entrance Exams
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-rose-600 dark:text-rose-400">
+                            <span>Explore Entrance Exams</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderExamGrid(artsExamIds)}
-                </div>
 
-                <!-- Section B: Step-by-Step Pathways -->
-                <div class="space-y-3 pt-4">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>🧭</span><span>Step-by-Step Career Pathways (Arts & Humanities)</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${artsPathways.length} Pathways Documented</span>
+                    <!-- Option 2: Step-by-Step Career Pathways -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_arts_pathways', 'Step-by-Step Pathways', '🧭')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_arts_pathways', 'Step-by-Step Pathways', '🧭');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-2xl font-bold">
+                                🧭
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">
+                                Step-by-Step Career Pathways
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Interactive 3-step roadmaps (Corporate Lawyer, Journalist, UI/UX Designer, Clinical Psychologist, Public Policy, etc.).
+                            </p>
+                            <div class="text-[11px] font-bold text-purple-600 dark:text-purple-400">
+                                ${artsPathways.length} Documented Pathways
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-purple-600 dark:text-purple-400">
+                            <span>Browse Step-by-Step Pathways</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderPathwayGrid(artsPathways)}
-                </div>
 
-                <!-- Section C: Career Directory -->
-                <div class="space-y-3 pt-4">
-                    <div class="flex items-center justify-between">
-                        <h4 class="text-base font-bold font-heading text-slate-900 dark:text-white flex items-center space-x-2">
-                            <span>💼</span><span>Arts & Humanities Careers & Roles Directory</span>
-                        </h4>
-                        <span class="text-xs text-slate-500">${artsRoles.length} Roles Listed in Document</span>
+                    <!-- Option 3: Careers & Roles Directory -->
+                    <div role="button" tabindex="0" onclick="fcPush('hs_arts_roles', 'Careers Directory', '💼')" 
+                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_arts_roles', 'Careers Directory', '💼');}" 
+                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-pink-500 dark:hover:border-pink-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="w-12 h-12 rounded-xl bg-pink-50 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400 flex items-center justify-center text-2xl font-bold">
+                                💼
+                            </div>
+                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition">
+                                Careers & Roles Directory
+                            </h4>
+                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                                Directory of all ${artsRoles.length} arts, humanities, social sciences, media, and public policy career roles.
+                            </p>
+                            <div class="text-[11px] font-bold text-pink-600 dark:text-pink-400">
+                                ${artsRoles.length} Documented Career Roles
+                            </div>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-pink-600 dark:text-pink-400">
+                            <span>View Roles Directory</span>
+                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
+                        </div>
                     </div>
-                    ${renderRolesList(artsRoles, 'rose')}
                 </div>
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 3: ARTS & HUMANITIES ENTRANCE EXAMINATIONS
+    if (currentStep.id === 'hs_arts_exams') {
+        const artsExamIds = ['cuet_ug', 'clat', 'ailet', 'nid_dat', 'uceed', 'nift', 'nchm_jee', 'ncet', 'ssc_chsl', 'rrb_ntpc', 'ssc_gd'];
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-rose-600 dark:text-rose-400">Arts & Humanities Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            📝 Entrance Examinations (Arts & Humanities)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            National entrance examinations for law, design, media, hotel management, and liberal arts.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Arts Options</span>
+                    </button>
+                </div>
+                ${renderExamGrid(artsExamIds)}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 3: ARTS & HUMANITIES STEP-BY-STEP CAREER PATHWAYS
+    if (currentStep.id === 'hs_arts_pathways') {
+        const artsPathways = PATHFINDER_PATHWAYS.filter(p => p.category === 'arts');
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-purple-600 dark:text-purple-400">Arts & Humanities Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            🧭 Step-by-Step Career Pathways (Arts & Humanities)
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            Interactive 3-step roadmaps: Class 11-12 Subjects → Key Entrance Exams → Degree & Specialization.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Arts Options</span>
+                    </button>
+                </div>
+                ${renderPathwayGrid(artsPathways)}
+            </div>
+        `;
+        return;
+    }
+
+    // LEVEL 3: ARTS & HUMANITIES CAREERS DIRECTORY
+    if (currentStep.id === 'hs_arts_roles') {
+        const artsRoles = PATHFINDER_ROLES.arts;
+        stage.innerHTML = `
+            <div class="space-y-6">
+                <div class="border-b border-slate-200 dark:border-slate-700 pb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-pink-600 dark:text-pink-400">Arts & Humanities Stream</span>
+                        <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
+                            💼 Arts & Humanities Careers & Roles Directory
+                        </h3>
+                        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
+                            All ${artsRoles.length} arts, humanities, social sciences, media, and public policy career roles.
+                        </p>
+                    </div>
+                    <button onclick="flowchartGoBack()" class="px-4 py-2 rounded-xl text-xs font-semibold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center space-x-1.5 self-start sm:self-center">
+                        <i class="fa-solid fa-arrow-left text-xs"></i>
+                        <span>Back to Arts Options</span>
+                    </button>
+                </div>
+                ${renderRolesList(artsRoles, 'rose')}
             </div>
         `;
         return;
@@ -1399,9 +1907,9 @@ function renderFlowchart() {
         stage.innerHTML = `
             <div class="space-y-6">
                 <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
-                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Direct Employment</span>
+                    <span class="text-xs font-bold uppercase tracking-wider text-emerald-600 dark:text-emerald-400">Employment Examinations</span>
                     <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
-                        💼 Direct Government Employment after Class 12
+                        💼 Examination for Employment after Class 12
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
                         National recruitment examinations open to Class 10/12 pass applicants as documented in the resource centre.
@@ -1414,21 +1922,21 @@ function renderFlowchart() {
         return;
     }
 
-    // LEVEL 2: ALL 25 CAREER PATHWAYS
+    // LEVEL 2: ALL 40 CAREER PATHWAYS
     if (currentStep.id === 'hs_pathways') {
         stage.innerHTML = `
             <div class="space-y-6">
                 <div class="border-b border-slate-200 dark:border-slate-700 pb-4">
                     <span class="text-xs font-bold uppercase tracking-wider text-indigo-600 dark:text-indigo-400">Interactive Directory</span>
                     <h3 class="text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-1">
-                        🧭 All 25 Step-by-Step Career Pathways
+                        🧭 All 40 Step-by-Step Career Pathways
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
                         Click any pathway to follow its complete branches: Step 1 (Subjects) ➔ Step 2 (Examinations) ➔ Step 3 (Degrees).
                     </p>
                 </div>
 
-                ${renderPathwayGrid(WAYFINDER_PATHWAYS)}
+                ${renderPathwayGrid(PATHFINDER_PATHWAYS)}
             </div>
         `;
         return;
@@ -1482,7 +1990,7 @@ function renderFlowchart() {
 
     // LEVEL 2: GRADUATION - SPECIALIZATIONS
     if (currentStep.id === 'grad_specialization') {
-        const specialPathways = WAYFINDER_PATHWAYS.filter(p => 
+        const specialPathways = PATHFINDER_PATHWAYS.filter(p => 
             ['ca', 'investment_banker', 'product_manager', 'corporate_lawyer', 'judge', 'psychologist'].includes(p.id)
         );
         stage.innerHTML = `
@@ -1507,52 +2015,47 @@ function renderFlowchart() {
 // RENDER HELPERS
 
 function renderExamGrid(examIdList) {
-    const cards = examIdList.map(id => {
-        const exam = WAYFINDER_EXAMS[id];
+    const buttons = examIdList.map(id => {
+        const exam = PATHFINDER_EXAMS[id];
         if (!exam) return '';
+        const safeName = exam.name.replace(/'/g, "\\'");
         return `
-            <div role="button" tabindex="0" onclick="fcPush('exam_${exam.id}', '${exam.name}', '📝')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('exam_${exam.id}', '${exam.name}', '📝');}" class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-site-primary dark:hover:border-blue-400 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
-                <div class="space-y-2">
-                    <div class="flex items-start justify-between gap-2">
-                        <h5 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white leading-snug">${exam.name}</h5>
-                        <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 shrink-0">${exam.frequency || 'Annual'}</span>
-                    </div>
-                    <p class="text-xs text-slate-500 dark:text-slate-400"><strong>Conducted by:</strong> ${exam.authority}</p>
-                    <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-2">${exam.purpose}</p>
+            <div role="button" tabindex="0" onclick="fcPush('exam_${exam.id}', '${safeName}', '📝')" 
+                onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('exam_${exam.id}', '${safeName}', '📝');}" 
+                class="group bg-white dark:bg-slate-800 p-4 sm:p-4.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-site-primary dark:hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-slate-700/60 hover:shadow-md transition cursor-pointer flex items-center justify-between gap-3">
+                <div class="flex items-center space-x-3 min-w-0">
+                    <span class="text-xl shrink-0">📝</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-800 dark:text-slate-100 group-hover:text-site-primary dark:group-hover:text-blue-400 transition truncate">${exam.name}</span>
                 </div>
-                <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs font-bold text-site-primary dark:text-blue-400">
-                    <span>View Exam Profile</span>
-                    <i class="fa-solid fa-arrow-right text-[11px]"></i>
+                <div class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center shrink-0 group-hover:bg-site-primary group-hover:text-white transition">
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
                 </div>
             </div>
         `;
     }).filter(Boolean).join('');
 
-    return `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">${cards}</div>`;
+    return `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">${buttons}</div>`;
 }
 
 function renderPathwayGrid(pathways) {
-    const cards = pathways.map(p => `
-        <div role="button" tabindex="0" onclick="fcPush('pathway_${p.id}', '${p.title.replace(/'/g, "\\'")}', '${p.icon}')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('pathway_${p.id}', '${p.title.replace(/'/g, "\\'")}', '${p.icon}');}" class="bg-white dark:bg-slate-800 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:shadow-md transition cursor-pointer flex flex-col justify-between">
-            <div class="space-y-3">
-                <div class="flex items-center space-x-2.5">
-                    <span class="text-2xl">${p.icon}</span>
-                    <h5 class="font-bold text-sm sm:text-base text-slate-900 dark:text-white">${p.title}</h5>
+    const buttons = pathways.map(p => {
+        const safeTitle = p.title.replace(/'/g, "\\'");
+        return `
+            <div role="button" tabindex="0" onclick="fcPush('pathway_${p.id}', '${safeTitle}', '${p.icon}')" 
+                onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('pathway_${p.id}', '${safeTitle}', '${p.icon}');}" 
+                class="group bg-white dark:bg-slate-800 p-4 sm:p-4.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-400 hover:bg-indigo-50/50 dark:hover:bg-slate-700/60 hover:shadow-md transition cursor-pointer flex items-center justify-between gap-3">
+                <div class="flex items-center space-x-3 min-w-0">
+                    <span class="text-xl shrink-0">${p.icon}</span>
+                    <span class="font-bold text-sm sm:text-base text-slate-800 dark:text-slate-100 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition truncate">${p.title}</span>
                 </div>
-                <div class="space-y-1.5 text-xs text-slate-600 dark:text-slate-300">
-                    <p class="line-clamp-1"><strong class="text-slate-900 dark:text-white">Step 1:</strong> ${p.step1}</p>
-                    <p class="line-clamp-1"><strong class="text-site-primary dark:text-blue-400">Step 2:</strong> ${p.step2}</p>
-                    <p class="line-clamp-1"><strong class="text-emerald-600 dark:text-emerald-400">Step 3:</strong> ${p.step3}</p>
+                <div class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center shrink-0 group-hover:bg-indigo-600 group-hover:text-white transition">
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
                 </div>
             </div>
-            <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex items-center justify-between text-xs font-bold text-indigo-600 dark:text-indigo-400">
-                <span>Open Pathway Stepper</span>
-                <i class="fa-solid fa-arrow-right text-[11px]"></i>
-            </div>
-        </div>
-    `).join('');
+        `;
+    }).join('');
 
-    return `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">${cards}</div>`;
+    return `<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">${buttons}</div>`;
 }
 
 function renderRolesList(roles, color) {
@@ -1570,7 +2073,7 @@ function renderRolesList(roles, color) {
 }
 
 function renderExamDetailView(container, examId) {
-    const exam = WAYFINDER_EXAMS[examId];
+    const exam = PATHFINDER_EXAMS[examId];
     if (!exam) {
         container.innerHTML = `
             <div class="p-6 text-center">
@@ -1656,7 +2159,7 @@ function renderExamDetailView(container, examId) {
 }
 
 function renderPathwayDetailView(container, pathwayId) {
-    const pathway = WAYFINDER_PATHWAYS.find(p => p.id === pathwayId);
+    const pathway = PATHFINDER_PATHWAYS.find(p => p.id === pathwayId);
     if (!pathway) {
         container.innerHTML = `
             <div class="p-6 text-center">
@@ -1721,7 +2224,7 @@ function renderPathwayDetailView(container, pathwayId) {
                         <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Relevant Examinations Documented:</span>
                         <div class="flex flex-wrap gap-2">
                             ${pathway.exams.map(eId => {
-                                const ex = WAYFINDER_EXAMS[eId];
+                                const ex = PATHFINDER_EXAMS[eId];
                                 if (!ex) return '';
                                 return `
                                     <button type="button" onclick="fcPush('exam_${ex.id}', '${ex.name}', '📝')" class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-site-primary hover:text-white dark:hover:bg-blue-600 text-xs font-bold text-slate-700 dark:text-slate-200 transition flex items-center space-x-1.5">
