@@ -2494,6 +2494,8 @@
         // ==========================================================================
 // ==========================================================================
 // ==========================================================================
+// ==========================================================================
+// ==========================================================================
 // PATHFINDER CAREER FLOWCHART - FULL DATA & ENGINE (Based on Source Document)
 // Source: "Pathfinder - A career and education Resource Centre(1).docx"
 // ==========================================================================
@@ -3706,7 +3708,7 @@ function renderFlowchart() {
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Branch 1: PG Higher Education Entrances -->
                     <div role="button" tabindex="0" onclick="fcPush('grad_entrance', 'PG Entrance Exams', '📝')" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('grad_entrance', 'PG Entrance Exams', '📝');}" class="bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
                         <div class="space-y-3">
@@ -3888,11 +3890,11 @@ function renderFlowchart() {
                         🔬 Science Stream (PCM / PCB / PCMB)
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Select whether you want to explore Entrance Examinations, Step-by-Step Career Pathways, or the Careers Directory:
+                        Select whether you want to explore Entrance Examinations or Step-by-Step Career Pathways:
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Option 1: Entrance Examinations -->
                     <div role="button" tabindex="0" onclick="fcPush('hs_science_exams', 'Entrance Examinations', '📝')" 
                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_science_exams', 'Entrance Examinations', '📝');}" 
@@ -3937,30 +3939,6 @@ function renderFlowchart() {
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-indigo-600 dark:text-indigo-400">
                             <span>Browse Step-by-Step Pathways</span>
-                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
-                        </div>
-                    </div>
-
-                    <!-- Option 3: Careers & Roles Directory -->
-                    <div role="button" tabindex="0" onclick="fcPush('hs_science_roles', 'Careers Directory', '💼')" 
-                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_science_roles', 'Careers Directory', '💼');}" 
-                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="w-12 h-12 rounded-xl bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-400 flex items-center justify-center text-2xl font-bold">
-                                💼
-                            </div>
-                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-purple-600 dark:group-hover:text-purple-400 transition">
-                                Careers & Roles Directory
-                            </h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Comprehensive catalog of all ${scienceRoles.length} science-based professional career roles, technologies, and specializations listed in the handbook.
-                            </p>
-                            <div class="text-[11px] font-bold text-purple-600 dark:text-purple-400">
-                                ${scienceRoles.length} Documented Career Roles
-                            </div>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-purple-600 dark:text-purple-400">
-                            <span>View Roles Directory</span>
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                         </div>
                     </div>
@@ -4062,11 +4040,11 @@ function renderFlowchart() {
                         📊 Commerce Stream
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Select whether you want to explore Entrance Examinations, Step-by-Step Career Pathways, or the Careers Directory:
+                        Select whether you want to explore Entrance Examinations or Step-by-Step Career Pathways:
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Option 1: Entrance Examinations -->
                     <div role="button" tabindex="0" onclick="fcPush('hs_commerce_exams', 'Entrance Examinations', '📝')" 
                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_commerce_exams', 'Entrance Examinations', '📝');}" 
@@ -4111,30 +4089,6 @@ function renderFlowchart() {
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-emerald-600 dark:text-emerald-400">
                             <span>Browse Step-by-Step Pathways</span>
-                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
-                        </div>
-                    </div>
-
-                    <!-- Option 3: Careers & Roles Directory -->
-                    <div role="button" tabindex="0" onclick="fcPush('hs_commerce_roles', 'Careers Directory', '💼')" 
-                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_commerce_roles', 'Careers Directory', '💼');}" 
-                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-teal-500 dark:hover:border-teal-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="w-12 h-12 rounded-xl bg-teal-50 dark:bg-teal-900/40 text-teal-600 dark:text-teal-400 flex items-center justify-center text-2xl font-bold">
-                                💼
-                            </div>
-                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition">
-                                Careers & Roles Directory
-                            </h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Complete directory of all ${commRoles.length} commerce, accounting, finance, and corporate management career roles.
-                            </p>
-                            <div class="text-[11px] font-bold text-teal-600 dark:text-teal-400">
-                                ${commRoles.length} Documented Career Roles
-                            </div>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-teal-600 dark:text-teal-400">
-                            <span>View Roles Directory</span>
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                         </div>
                     </div>
@@ -4236,11 +4190,11 @@ function renderFlowchart() {
                         🎨 Arts & Humanities Stream
                     </h3>
                     <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 mt-1">
-                        Select whether you want to explore Entrance Examinations, Step-by-Step Career Pathways, or the Careers Directory:
+                        Select whether you want to explore Entrance Examinations or Step-by-Step Career Pathways:
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Option 1: Entrance Examinations -->
                     <div role="button" tabindex="0" onclick="fcPush('hs_arts_exams', 'Entrance Examinations', '📝')" 
                         onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_arts_exams', 'Entrance Examinations', '📝');}" 
@@ -4285,30 +4239,6 @@ function renderFlowchart() {
                         </div>
                         <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-purple-600 dark:text-purple-400">
                             <span>Browse Step-by-Step Pathways</span>
-                            <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
-                        </div>
-                    </div>
-
-                    <!-- Option 3: Careers & Roles Directory -->
-                    <div role="button" tabindex="0" onclick="fcPush('hs_arts_roles', 'Careers Directory', '💼')" 
-                        onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();fcPush('hs_arts_roles', 'Careers Directory', '💼');}" 
-                        class="group bg-white dark:bg-slate-800 rounded-2xl p-6 border-2 border-slate-200 dark:border-slate-700 hover:border-pink-500 dark:hover:border-pink-400 hover:shadow-lg transition cursor-pointer flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="w-12 h-12 rounded-xl bg-pink-50 dark:bg-pink-900/40 text-pink-600 dark:text-pink-400 flex items-center justify-center text-2xl font-bold">
-                                💼
-                            </div>
-                            <h4 class="text-lg font-bold font-heading text-slate-900 dark:text-white group-hover:text-pink-600 dark:group-hover:text-pink-400 transition">
-                                Careers & Roles Directory
-                            </h4>
-                            <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                                Directory of all ${artsRoles.length} arts, humanities, social sciences, media, and public policy career roles.
-                            </p>
-                            <div class="text-[11px] font-bold text-pink-600 dark:text-pink-400">
-                                ${artsRoles.length} Documented Career Roles
-                            </div>
-                        </div>
-                        <div class="mt-4 pt-3 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center text-xs font-bold text-pink-600 dark:text-pink-400">
-                            <span>View Roles Directory</span>
                             <i class="fa-solid fa-arrow-right group-hover:translate-x-1 transition"></i>
                         </div>
                     </div>
@@ -4749,6 +4679,10 @@ function renderPathwayDetailView(container, pathwayId) {
 function initFlowchart() {
     flowchartReset();
 }
+
+        
+
+        
 
         
 
