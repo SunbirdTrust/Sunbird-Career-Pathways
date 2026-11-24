@@ -25,7 +25,7 @@ This is the fastest method. It embeds the entire web portal directly into Google
 9. Click **Publish** on your Google Site!
 
 > **Why `google-sites-embed.html`?**  
-> Google Sites sandbox frames do not have access to local file paths like `sunbird-logo.png`. In `google-sites-embed.html`, the Sunbird logo has been converted into an inline Base64 image, and outbound links are configured with `<base target="_blank">` so exams and university links open in a new tab smoothly without iframe sandbox errors.
+> Google Sites sandbox frames do not have access to local file paths like `sunbird-logo.png`. In `google-sites-embed.html`, the Sunbird Trust logo has been converted into an inline Base64 image, and outbound links are configured with `<base target="_blank">` so exams and university links open in a new tab smoothly without iframe sandbox errors.
 
 ---
 
