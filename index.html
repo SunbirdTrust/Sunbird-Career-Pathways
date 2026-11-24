@@ -1158,12 +1158,13 @@
                     <button onclick="filterCareerProfiles('biz')"
                         class="career-filter-btn px-3 py-1.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Business
                         & Finance</button>
+                    <button onclick="filterCareerProfiles('arts')" class="career-filter-btn px-3 py-1.5 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200">Education & Humanities</button>
                 </div>
             </div>
 
 
 
-            <div id="careerProfilesGrid" class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 w-full">
+            <div id="careerProfilesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 w-full">
                 <!-- Dynamically rendered -->
             </div>
         </section>
@@ -1970,18 +1971,205 @@
 
         // CAREER PROFILES DATA (Merged 11+ profiles from career-explorer.html)
         const careerProfilesData = [
-            { title: "Doctor / Surgeon", domain: "med", domainLabel: "Healthcare", image: "images/careers/doctor.jpg", pathway: "Class 12 (PCB) ➔ NEET UG ➔ MBBS (5.5 yrs) ➔ Mandatory Internship ➔ MD/MS Specialization", skills: "Clinical diagnostics, pharmacology, active empathy, patience, crisis decision-making", sectors: "Government and private hospitals, medical colleges, public health NGOs, research institutes", salary: "₹6 – 30+ Lakh / Year", prospects: "Continuous high demand across all regions in India." },
-            { title: "Software Engineer / Architect", domain: "tech", domainLabel: "Tech & Science", image: "images/careers/software-engineer.jpg", pathway: "Class 12 (PCM) ➔ B.Tech / BCA / B.Sc CS ➔ Internships & Open-Source Projects ➔ Tech Lead", skills: "Data structures, algorithms, Python/Java/Go/C++, cloud architecture, system design", sectors: "IT MNCs, high-growth startups, financial tech, multinational product firms", salary: "₹5 – 50+ Lakh / Year", prospects: "Exponential global growth in AI, Cloud, and Software services." },
-            { title: "Civil Servant (IAS / IPS / IFS)", domain: "govt", domainLabel: "Govt & Public Service", image: "images/careers/civil-servant.jpg", pathway: "Class 12 ➔ Graduation in Any Discipline ➔ UPSC Civil Services Exam (Prelims, Mains, Interview)", skills: "Public administration, strategic governance, constitutional law, objective leadership", sectors: "Central Ministries, District Collectorates, Police Command, Diplomatic Missions", salary: "Govt Pay Level 10+ (approx ₹70k - ₹2.5 Lakh/month + residential allowances)", prospects: "Prestigious leadership role shaping nationwide policy and grassroots welfare." },
-            { title: "Chartered Accountant (CA)", domain: "biz", domainLabel: "Business & Finance", image: "images/careers/chartered-accountant.jpg", pathway: "Class 12 ➔ CA Foundation ➔ CA Intermediate ➔ 2-Year Practical Articleship ➔ CA Final", skills: "Auditing, corporate taxation, forensic accounting, financial planning, company law", sectors: "Big 4 audit firms, multinational corporations, banking & finance, independent practice", salary: "₹7 – 45+ Lakh / Year", prospects: "Indispensable professional across every corporate and banking institution." },
-            { title: "Lawyer / Corporate Counsel", domain: "govt", domainLabel: "Law & Justice", image: "images/careers/lawyer.jpg", pathway: "Class 12 (Any stream) ➔ CLAT/AILET ➔ 5-Year Integrated BA/BBA LL.B. ➔ Bar Council Enrollment", skills: "Legal drafting, logical argumentation, constitutional reasoning, dispute negotiation", sectors: "Supreme Court & High Courts, corporate law firms, legal departments of MNCs", salary: "₹5 – 35+ Lakh / Year", prospects: "Thriving market in corporate arbitration, cyber law, and litigation." },
-            { title: "Data Scientist & AI Specialist", domain: "tech", domainLabel: "Tech & AI", image: "images/careers/data-scientist.jpg", pathway: "Class 12 (PCM) ➔ B.Tech / B.Sc Math or Statistics ➔ Specialization in Machine Learning & Data Analytics", skills: "Statistical modeling, Python, SQL, Deep Learning, Pandas, Data Visualization", sectors: "Tech platforms, e-commerce, banking risk analytics, healthcare intelligence", salary: "₹7 – 45+ Lakh / Year", prospects: "One of the most in-demand technical specializations worldwide." },
-            { title: "Architect & Urban Designer", domain: "arts", domainLabel: "Architecture & Design", image: "images/careers/architect.jpg", pathway: "Class 12 (PCM) ➔ NATA / JEE Main Paper 2 ➔ B.Arch (5 Years) ➔ Council of Architecture Reg.", skills: "Spatial design, CAD/BIM software, sustainable building engineering, aesthetic drafting", sectors: "Architecture firms, real estate infrastructure, smart city planning, interior design", salary: "₹4 – 25+ Lakh / Year", prospects: "Strong growth fueled by urban development and smart infrastructure." },
-            { title: "Teacher / University Professor", domain: "arts", domainLabel: "Education & Academia", image: "images/careers/teacher.jpg", pathway: "Class 12 ➔ Bachelor's Degree ➔ Master's Degree ➔ B.Ed / UGC-NET / PhD ➔ Assistant Professor", skills: "Pedagogy, subject mastery, curriculum design, student mentorship, academic research", sectors: "Government and private schools, central and state universities, research laboratories", salary: "₹4 – 20+ Lakh / Year (UGC Pay Bands for Professors)", prospects: "Evergreen social and academic impact." },
-            { title: "Scientist & Research Scholar", domain: "tech", domainLabel: "Research & Science", image: "images/careers/scientist.jpg", pathway: "Class 12 (Science) ➔ B.Sc / BS (IISER/IISc/Central Uni) ➔ M.Sc ➔ GATE/CSIR NET ➔ PhD", skills: "Experimental methodology, mathematical analysis, scientific paper writing, peer review", sectors: "ISRO, DRDO, CSIR laboratories, ICMR, BARC, international research institutions", salary: "₹6 – 25+ Lakh / Year (plus research grants)", prospects: "Crucial for national technological self-reliance and innovation." },
-            { title: "Defence Officer (Army / Navy / Air Force)", domain: "govt", domainLabel: "Armed Forces", image: "images/careers/defence-officer.jpg", pathway: "Class 12 (NDA Exam) or Graduation (CDS / AFCAT) ➔ SSB Interview ➔ 3-4 Year Military Academy Training", skills: "Physical endurance, strategic warfare, troop leadership, weapon systems, crisis discipline", sectors: "Indian Army, Indian Navy, Indian Air Force, Coast Guard", salary: "Lieutenant/Flying Officer Rank: approx ₹80k - ₹2.5 Lakh/month + military benefits", prospects: "Noble career serving national defense with supreme honor." },
-            { title: "Entrepreneur & Business Innovator", domain: "biz", domainLabel: "Entrepreneurship", image: "images/careers/entrepreneur.jpg", pathway: "Class 12 ➔ Any Degree (BBA / B.Tech / BA) ➔ Market Gap Identification ➔ Product/Service Launch", skills: "Market validation, fundraising, team leadership, risk management, sales & execution", sectors: "Self-founded technology startups, local enterprises, social ventures, services", salary: "Variable; immense wealth creation and equity potential", prospects: "India's booming startup ecosystem backed by Startup India schemes." }
-        ];
+            {
+                id: "doctor",
+                title: "Doctor / Surgeon",
+                domain: "med",
+                domainLabel: "Healthcare",
+                icon: "🩺",
+                iconBg: "bg-rose-50 text-rose-600 dark:bg-rose-950/60 dark:text-rose-400",
+                salary: "₹6 – 30+ Lakh / Year",
+                step1: "Science (PCB): Physics, Chemistry, Biology in Higher Secondary",
+                step2: "NEET-UG (National Eligibility cum Entrance Test) followed by NEET-PG / INI-CET",
+                step3: "MBBS (5.5 Years incl. 1-Yr Rotatory Internship) ➔ MD / MS Super-Specialization",
+                pathway: "Higher Secondary (PCB) ➔ NEET UG ➔ MBBS (5.5 yrs) ➔ Mandatory Internship ➔ MD/MS Specialization",
+                exams: [{ id: "neet_ug", name: "NEET UG" }],
+                flowchartId: "doctor",
+                skills: "Clinical diagnostics, pharmacology, patient empathy, surgical dexterity, crisis decision-making",
+                sectors: "Government & private super-specialty hospitals, medical research institutes, clinical practice, public health",
+                prospects: "Continuous high demand across all regions in India with immense societal respect."
+            },
+            {
+                id: "software_engineer",
+                title: "Software Engineer / Architect",
+                domain: "tech",
+                domainLabel: "Tech & Science",
+                icon: "💻",
+                iconBg: "bg-blue-50 text-blue-600 dark:bg-blue-950/60 dark:text-blue-400",
+                salary: "₹5 – 50+ Lakh / Year",
+                step1: "Science (PCM): Physics, Chemistry, Mathematics in Higher Secondary",
+                step2: "JEE Main, JEE Advanced, BITSAT, State Engineering CETs",
+                step3: "B.Tech / B.E. in Computer Science / IT / AI & ML ➔ Cloud Architect / Engineering Lead",
+                pathway: "Higher Secondary (PCM) ➔ B.Tech / BCA / B.Sc CS ➔ Internships & Open-Source Projects ➔ Tech Lead",
+                exams: [{ id: "jee_mains", name: "JEE Main" }, { id: "jee_adv", name: "JEE Advanced" }],
+                flowchartId: "ai_ml",
+                skills: "Data structures & algorithms, cloud architecture (AWS/GCP), distributed systems, Python/Java/Go/C++",
+                sectors: "IT MNCs, high-growth tech startups, fintech unicorns, quantitative finance, enterprise software",
+                prospects: "Exponential global expansion driven by AI, cloud computing, and digital transformation."
+            },
+            {
+                id: "civil_servant",
+                title: "Civil Servant (IAS / IPS / IFS)",
+                domain: "govt",
+                domainLabel: "Govt & Law",
+                icon: "🏛️",
+                iconBg: "bg-indigo-50 text-indigo-600 dark:bg-indigo-950/60 dark:text-indigo-400",
+                salary: "Govt Pay Level 10+ (₹70k - ₹2.5 Lakh/mo + Housing & Allowances)",
+                step1: "Higher Secondary in Any Stream (Humanities, Commerce, or Science)",
+                step2: "UPSC Civil Services Examination (CSE: Prelims ➔ Mains ➔ Personality Test / Interview)",
+                step3: "Bachelor's Degree in Any Discipline ➔ LBSNAA Foundation Training ➔ District Magistrate / Police Superintendant / Ambassador",
+                pathway: "Higher Secondary (Any stream) ➔ Graduation in Any Discipline ➔ UPSC Civil Services Exam (Prelims, Mains, Interview)",
+                exams: [{ id: "upsc_cse", name: "UPSC CSE" }],
+                flowchartId: "grad_recruitment",
+                skills: "Public administration, constitutional governance, policy analysis, crisis leadership, ethical judgment",
+                sectors: "Central Government Ministries, District Collectorates, Police Command, Diplomatic Missions abroad",
+                prospects: "Highest-prestige administrative authority shaping national policy, grassroots governance, and development."
+            },
+            {
+                id: "ca",
+                title: "Chartered Accountant (CA)",
+                domain: "biz",
+                domainLabel: "Business & Finance",
+                icon: "📊",
+                iconBg: "bg-amber-50 text-amber-600 dark:bg-amber-950/60 dark:text-amber-400",
+                salary: "₹7 – 45+ Lakh / Year",
+                step1: "Commerce or Science with Mathematics in Higher Secondary",
+                step2: "ICAI CA Foundation ➔ CA Intermediate (or Direct Entry after Graduation)",
+                step3: "3-Year Articleship Practical Training ➔ CA Final Examination ➔ ICAI Fellow Member",
+                pathway: "Higher Secondary ➔ CA Foundation ➔ CA Intermediate ➔ 2-Year Practical Articleship ➔ CA Final",
+                exams: [{ id: "ca_foundation", name: "CA Foundation" }],
+                flowchartId: "ca",
+                skills: "Statutory auditing, corporate taxation, forensic accounting, financial reporting, Ind AS / IFRS compliance",
+                sectors: "Big 4 audit accounting firms, multinational corporations, investment banks, independent advisory practice",
+                prospects: "Indispensable fiduciary leader commanding universal respect across every enterprise in India."
+            },
+            {
+                id: "lawyer",
+                title: "Lawyer / Corporate Counsel",
+                domain: "govt",
+                domainLabel: "Govt & Law",
+                icon: "⚖️",
+                iconBg: "bg-purple-50 text-purple-600 dark:bg-purple-950/60 dark:text-purple-400",
+                salary: "₹5 – 35+ Lakh / Year",
+                step1: "Higher Secondary in Any Stream (Humanities, Commerce, or Science)",
+                step2: "CLAT UG (Common Law Admission Test) / AILET / LSAT—India",
+                step3: "5-Year Integrated B.A. LL.B. / B.B.A. LL.B. (National Law Universities) ➔ Bar Council of India Enrollment",
+                pathway: "Higher Secondary (Any stream) ➔ CLAT/AILET ➔ 5-Year Integrated BA/BBA LL.B. ➔ Bar Council Enrollment",
+                exams: [{ id: "clat", name: "CLAT UG" }, { id: "ailet", name: "AILET" }],
+                flowchartId: "corporate_lawyer",
+                skills: "Constitutional reasoning, legal drafting, dispute negotiation, cross-examination, contract arbitration",
+                sectors: "Tier-1 corporate law firms, Supreme Court / High Courts litigation, multinational general counsels, judiciary",
+                prospects: "Surging demand fueled by international arbitration, corporate M&A, intellectual property, and tech regulations."
+            },
+            {
+                id: "data_scientist",
+                title: "Data Scientist & AI Specialist",
+                domain: "tech",
+                domainLabel: "Tech & Science",
+                icon: "🤖",
+                iconBg: "bg-cyan-50 text-cyan-600 dark:bg-cyan-950/60 dark:text-cyan-400",
+                salary: "₹7 – 45+ Lakh / Year",
+                step1: "Science (PCM) or Commerce with Mathematics / Statistics in Higher Secondary",
+                step2: "JEE Main / CUET-UG / ISI Admission Test",
+                step3: "B.Tech in CS/AI, B.Stat / B.Math (ISI), or B.Sc in Data Science ➔ M.Tech / MS Specialization",
+                pathway: "Higher Secondary (PCM/Math) ➔ B.Tech / B.Sc Math or Statistics ➔ Specialization in Machine Learning & Data Analytics",
+                exams: [{ id: "jee_mains", name: "JEE Main" }, { id: "cuet_ug", name: "CUET UG" }],
+                flowchartId: "data_scientist",
+                skills: "Statistical modeling, deep learning architectures (Transformers/PyTorch), Python, SQL, predictive analytics",
+                sectors: "Global tech platforms, quantitative hedge funds, healthcare intelligence, e-commerce giants, autonomous tech",
+                prospects: "Pivotal high-growth technological frontier shaping every modern business model worldwide."
+            },
+            {
+                id: "architect",
+                title: "Architect & Urban Designer",
+                domain: "tech",
+                domainLabel: "Tech & Science",
+                icon: "🏛️",
+                iconBg: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400",
+                salary: "₹4 – 25+ Lakh / Year",
+                step1: "Science (PCM): Physics, Chemistry, Mathematics in Higher Secondary",
+                step2: "NATA (National Aptitude Test in Architecture) or JEE Main Paper 2 (B.Arch)",
+                step3: "5-Year B.Arch Degree Programme ➔ Council of Architecture (COA) Official Registration",
+                pathway: "Higher Secondary (PCM) ➔ NATA / JEE Main Paper 2 ➔ B.Arch (5 Years) ➔ Council of Architecture Reg.",
+                exams: [{ id: "nata", name: "NATA" }],
+                flowchartId: "architect",
+                skills: "Spatial design, CAD/BIM modeling (Revit/Rhino), sustainable structural engineering, environmental drafting",
+                sectors: "International architectural consultancies, smart-city urban planning authorities, green building developers",
+                prospects: "Accelerated demand driven by national smart city initiatives, sustainable urban infrastructure, and redevelopment."
+            },
+            {
+                id: "professor",
+                title: "Teacher / University Professor",
+                domain: "arts",
+                domainLabel: "Education & Humanities",
+                icon: "🎓",
+                iconBg: "bg-amber-50 text-amber-600 dark:bg-amber-950/60 dark:text-amber-400",
+                salary: "₹4 – 20+ Lakh / Year (UGC Pay Bands Level 10-14)",
+                step1: "Higher Secondary in Relevant Stream (Arts, Science, or Commerce)",
+                step2: "CUET UG ➔ CUET PG ➔ UGC-NET / CSIR-NET / JRF",
+                step3: "Bachelor's Degree ➔ Master's Degree (M.A. / M.Sc / M.Com) ➔ Ph.D. Research Thesis ➔ Assistant Professor",
+                pathway: "Higher Secondary ➔ Bachelor's Degree ➔ Master's Degree ➔ B.Ed / UGC-NET / PhD ➔ Assistant Professor",
+                exams: [{ id: "cuet_ug", name: "CUET UG" }],
+                flowchartId: "professor",
+                skills: "Pedagogy & lecturing, peer-reviewed academic research, curriculum development, student mentoring",
+                sectors: "Central and state universities, IITs/IIMs/IISERs, degree colleges, government education departments",
+                prospects: "Evergreen social impact with lifetime academic freedom, research grants, and secure tenure."
+            },
+            {
+                id: "scientist",
+                title: "Scientist & Research Scholar",
+                domain: "tech",
+                domainLabel: "Tech & Science",
+                icon: "🔬",
+                iconBg: "bg-teal-50 text-teal-600 dark:bg-teal-950/60 dark:text-teal-400",
+                salary: "₹6 – 25+ Lakh / Year (plus research grants)",
+                step1: "Science Stream (PCM / PCB / PCMB) in Higher Secondary",
+                step2: "IISER Aptitude Test (IAT) / NEST / JEE Advanced / GATE / CSIR NET-JRF",
+                step3: "5-Year BS-MS Dual Degree (IISERs / IISc) ➔ Ph.D. Doctoral Research ➔ Post-Doctoral Fellowship",
+                pathway: "Higher Secondary (Science) ➔ B.Sc / BS (IISER/IISc/Central Uni) ➔ M.Sc ➔ GATE/CSIR NET ➔ PhD",
+                exams: [{ id: "iat", name: "IAT (IISER)" }, { id: "nest", name: "NEST" }],
+                flowchartId: "pure_sciences",
+                skills: "Experimental research design, mathematical modeling, hypothesis testing, international peer-reviewed publication",
+                sectors: "ISRO, DRDO, CSIR National Laboratories, ICMR, BARC, international research consortia (CERN, NASA)",
+                prospects: "Critical pillar for Indian self-reliance in aerospace, quantum technologies, clean energy, and biotechnology."
+            },
+            {
+                id: "defence_officer",
+                title: "Defence Officer (Army / Navy / Air Force)",
+                domain: "govt",
+                domainLabel: "Govt & Law",
+                icon: "🎖️",
+                iconBg: "bg-emerald-50 text-emerald-600 dark:bg-emerald-950/60 dark:text-emerald-400",
+                salary: "Lieutenant Rank: ₹80k - ₹2.5 Lakh/mo + Military Service Pay & Perks",
+                step1: "Higher Secondary in Any Stream for Army; Physics & Mathematics required for Navy / Air Force",
+                step2: "UPSC NDA & NA Exam (after Class 12) or CDS / AFCAT Exam (after Graduation) + SSB Interview",
+                step3: "3-Year Training at National Defence Academy (NDA, Khadakwasla) + 1-Year Indian Military / Naval / Air Force Academy",
+                pathway: "Higher Secondary (NDA Exam) or Graduation (CDS / AFCAT) ➔ SSB Interview ➔ 3-4 Year Military Academy Training",
+                exams: [{ id: "nda_na", name: "NDA & NA" }],
+                flowchartId: "nda_defence",
+                skills: "Combat tactical command, strategic crisis leadership, high physical resilience, troop management, weapons systems",
+                sectors: "Indian Army, Indian Navy, Indian Air Force, Indian Coast Guard, National Security Command",
+                prospects: "Unmatched honor and nation-building leadership with pension, healthcare, and lifetime officer privileges."
+            },
+            {
+                id: "entrepreneur",
+                title: "Entrepreneur & Business Innovator",
+                domain: "biz",
+                domainLabel: "Business & Finance",
+                icon: "🚀",
+                iconBg: "bg-orange-50 text-orange-600 dark:bg-orange-950/60 dark:text-orange-400",
+                salary: "Variable Equity / High Wealth Creation Potential",
+                step1: "Higher Secondary in Any Stream (Science, Commerce, or Humanities)",
+                step2: "College Entrance Exams (CAT, IPMAT, CUET, JEE) or Direct Incubation Selection",
+                step3: "Degree in Business (BBA / MBA), Tech (B.Tech), or Design ➔ Product-Market Fit ➔ Seed Venture Capital",
+                pathway: "Higher Secondary ➔ Any Degree (BBA / B.Tech / BA) ➔ Market Gap Identification ➔ Product/Service Launch",
+                exams: [{ id: "ipmat", name: "IPMAT" }],
+                flowchartId: "entrepreneurship",
+                skills: "Product innovation, venture fundraising, customer acquisition, lean startup execution, financial forecasting",
+                sectors: "Tech startups, D2C brands, social enterprises, green technology, digital marketplace services",
+                prospects: "India's booming 3rd largest global startup ecosystem supported by Startup India, DPIIT, and angel networks."
+            }
+        ];;
 
         // SKILLS DATA (Merged from skills-centre.html)
         const skillsData = [
@@ -2218,37 +2406,33 @@
             `).join('');
         }
 
-        function renderCareerProfiles(items = careerProfilesData) {
+                function renderCareerProfiles(items = careerProfilesData) {
             const container = document.getElementById('careerProfilesGrid');
+            if (!container) return;
+
             container.innerHTML = items.map(p => `
-                <div class="career-bg-card rounded-2xl shadow-md hover:shadow-2xl border border-slate-200/60 dark:border-slate-700/80 transition-all duration-300 w-full min-w-0 flex flex-col justify-between">
-                    <img src="${p.image}" alt="${p.title}" loading="lazy" class="career-bg-card-img" onerror="this.style.display='none'">
-                    <div class="career-bg-overlay"></div>
-                    <div class="relative z-10 p-6 sm:p-7 flex flex-col justify-between flex-grow space-y-5 text-white min-w-0">
-                        <div>
-                            <div class="space-y-2.5">
-                                <span class="inline-block px-3 py-0.5 rounded-full text-[11px] font-bold uppercase tracking-wider bg-white/20 backdrop-blur-sm text-white border border-white/30 shadow-xs">
-                                    ${p.domainLabel}
-                                </span>
-                                <h3 class="text-xl sm:text-2xl font-extrabold font-heading text-white leading-snug career-text-shadow">${p.title}</h3>
-                                <div>
-                                    <span class="inline-block px-3 py-1 bg-amber-400/95 text-slate-950 text-xs font-extrabold rounded-lg shadow-sm whitespace-normal break-words leading-relaxed max-w-full">
-                                        <i class="fa-solid fa-coins text-amber-800 mr-1.5 text-[11px]"></i>${p.salary}
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="space-y-2.5 text-xs sm:text-sm mt-5 text-slate-100 leading-relaxed career-text-shadow">
-                                <p><strong class="text-amber-300 font-bold">Educational Pathway:</strong> <span class="text-white/95 block sm:inline mt-0.5 sm:mt-0">${p.pathway}</span></p>
-                                <p><strong class="text-amber-300 font-bold">Key Skills:</strong> <span class="text-white/95">${p.skills}</span></p>
-                                <p><strong class="text-amber-300 font-bold">Employment Sectors:</strong> <span class="text-white/95">${p.sectors}</span></p>
-                            </div>
+                <div role="button" tabindex="0" onclick="openCareerModal('${p.id}')"
+                    onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openCareerModal('${p.id}');}"
+                    class="group bg-white dark:bg-slate-800 p-4 sm:p-4.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 hover:border-site-primary dark:hover:border-blue-400 hover:bg-blue-50/50 dark:hover:bg-slate-700/60 hover:shadow-md transition cursor-pointer flex items-center justify-between gap-3 w-full">
+                    <div class="flex items-center space-x-3.5 min-w-0">
+                        <div class="w-11 h-11 rounded-xl ${p.iconBg} flex items-center justify-center text-xl shrink-0 shadow-2xs group-hover:scale-105 transition">
+                            ${p.icon}
                         </div>
-                        <div class="pt-3.5 border-t border-white/25 text-xs sm:text-sm text-blue-100 italic career-text-shadow">
-                            <strong class="text-emerald-300 not-italic font-bold">Future Prospects:</strong> ${p.prospects}
+                        <div class="min-w-0">
+                            <span class="inline-block px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-700 text-site-primary dark:text-blue-300">
+                                ${p.domainLabel}
+                            </span>
+                            <h3 class="font-bold text-sm sm:text-base text-slate-800 dark:text-slate-100 group-hover:text-site-primary dark:group-hover:text-blue-400 transition truncate mt-1">
+                                ${p.title}
+                            </h3>
                         </div>
+                    </div>
+                    <div class="w-8 h-8 rounded-xl bg-slate-100 dark:bg-slate-700 flex items-center justify-center shrink-0 group-hover:bg-site-primary group-hover:text-white transition">
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
                     </div>
                 </div>
             `).join('');
+            if (typeof sendHeightToParent === 'function') sendHeightToParent();
         }
 
         function filterCareerProfiles(filter) {
@@ -2256,15 +2440,163 @@
                 b.classList.remove('bg-site-primary', 'text-white');
                 b.classList.add('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-200');
             });
-            event.target.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-200');
-            event.target.classList.add('bg-site-primary', 'text-white');
+            if (window.event && window.event.target) {
+                const targetBtn = window.event.target.closest('.career-filter-btn');
+                if (targetBtn) {
+                    targetBtn.classList.remove('bg-slate-200', 'dark:bg-slate-700', 'text-slate-700', 'dark:text-slate-200');
+                    targetBtn.classList.add('bg-site-primary', 'text-white');
+                }
+            }
 
             if (filter === 'all') renderCareerProfiles(careerProfilesData);
             else renderCareerProfiles(careerProfilesData.filter(p => p.domain === filter));
-            sendHeightToParent();
+            if (typeof sendHeightToParent === 'function') sendHeightToParent();
         }
 
-        function renderSkills() {
+        function openCareerModal(careerId) {
+            const p = careerProfilesData.find(c => c.id === careerId);
+            if (!p) return;
+
+            let modal = document.getElementById('careerModal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'careerModal';
+                modal.className = 'fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm p-4 sm:p-6 overflow-y-auto flex items-center justify-center';
+                modal.onclick = (e) => { if (e.target === modal) closeCareerModal(); };
+                document.body.appendChild(modal);
+            }
+
+            modal.innerHTML = `
+                <div class="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-3xl max-h-[90vh] overflow-y-auto shadow-2xl p-6 sm:p-8 space-y-6" onclick="event.stopPropagation()">
+                    <!-- Header -->
+                    <div class="flex items-start justify-between gap-3 pb-4 border-b border-slate-200 dark:border-slate-700">
+                        <div class="flex items-center space-x-3.5">
+                            <span class="text-3xl">${p.icon}</span>
+                            <div>
+                                <div class="flex items-center space-x-2">
+                                    <span class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-slate-100 dark:bg-slate-800 text-site-primary dark:text-blue-400">${p.domainLabel}</span>
+                                    <span class="text-xs font-bold text-amber-700 dark:text-amber-400">${p.salary}</span>
+                                </div>
+                                <h3 class="text-xl sm:text-2xl font-extrabold font-heading text-slate-900 dark:text-white mt-0.5">${p.title}</h3>
+                            </div>
+                        </div>
+                        <button type="button" onclick="closeCareerModal()" aria-label="Close modal" 
+                            class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 flex items-center justify-center text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white transition">
+                            <i class="fa-solid fa-xmark text-sm"></i>
+                        </button>
+                    </div>
+
+                    <!-- 3-Step Detailed Interactive Roadmap -->
+                    <div class="space-y-4">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400">Step-by-Step Educational Journey</h4>
+                        
+                        <!-- Step 1 -->
+                        <div class="p-5 rounded-2xl bg-blue-50/70 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/60 space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-7 h-7 rounded-full bg-site-primary text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                                <h5 class="font-bold text-sm sm:text-base text-site-primary dark:text-blue-300">Step 1: Higher Secondary Stream & Subjects</h5>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 pl-9 font-medium leading-relaxed">
+                                ${p.step1}
+                            </p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="p-5 rounded-2xl bg-amber-50/70 dark:bg-amber-950/30 border border-amber-200 dark:border-amber-900/60 space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-7 h-7 rounded-full bg-amber-500 text-slate-950 text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                                <h5 class="font-bold text-sm sm:text-base text-amber-800 dark:text-amber-300">Step 2: Competitive Entrance Examinations</h5>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 pl-9 font-medium leading-relaxed">
+                                ${p.step2}
+                            </p>
+                            ${p.exams && p.exams.length > 0 ? `
+                                <div class="pl-9 pt-1 flex flex-wrap gap-2">
+                                    ${p.exams.map(e => `
+                                        <span class="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full text-xs font-bold bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-700 text-amber-900 dark:text-amber-200 shadow-2xs">
+                                            <span>📝 ${e.name}</span>
+                                        </span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="p-5 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/60 space-y-2">
+                            <div class="flex items-center space-x-2">
+                                <span class="w-7 h-7 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                                <h5 class="font-bold text-sm sm:text-base text-emerald-700 dark:text-emerald-300">Step 3: Degree Programme & Qualifications</h5>
+                            </div>
+                            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-300 pl-9 font-medium leading-relaxed">
+                                ${p.step3}
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Skills & Employment Specs Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+                            <strong class="text-slate-900 dark:text-white font-bold block">💡 Key Skills & Core Strengths:</strong>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">${p.skills}</p>
+                        </div>
+                        <div class="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800 space-y-1">
+                            <strong class="text-slate-900 dark:text-white font-bold block">🏢 Target Employment Sectors:</strong>
+                            <p class="text-slate-600 dark:text-slate-300 leading-relaxed">${p.sectors}</p>
+                        </div>
+                    </div>
+
+                    <!-- Action buttons -->
+                    <div class="pt-4 border-t border-slate-200 dark:border-slate-700 flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <button type="button" onclick="launchInFlowchart('${p.flowchartId || ''}')" 
+                            class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-indigo-600 hover:bg-indigo-700 text-white shadow-sm transition flex items-center justify-center space-x-2">
+                            <i class="fa-solid fa-compass"></i>
+                            <span>View in Smart Pathway Finder ➔</span>
+                        </button>
+                        <button type="button" onclick="closeCareerModal()" 
+                            class="w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            if (typeof sendHeightToParent === 'function') sendHeightToParent();
+        }
+
+        function closeCareerModal() {
+            const modal = document.getElementById('careerModal');
+            if (modal) {
+                modal.classList.add('hidden');
+            }
+            document.body.style.overflow = '';
+            if (typeof sendHeightToParent === 'function') sendHeightToParent();
+        }
+
+        function launchInFlowchart(flowchartId) {
+            closeCareerModal();
+            if (typeof switchSection === 'function') {
+                switchSection('advisor');
+            }
+            if (flowchartId && typeof PATHFINDER_PATHWAYS !== 'undefined' && typeof fcPush === 'function') {
+                if (typeof flowchartReset === 'function') flowchartReset();
+                const pw = PATHFINDER_PATHWAYS.find(x => x.id === flowchartId);
+                if (pw) {
+                    fcPush('pathway_' + pw.id, pw.title, pw.icon);
+                } else if (flowchartId === 'grad_recruitment') {
+                    fcPush('graduation', 'Graduation Pathways', '🎓');
+                }
+            }
+            const el = document.getElementById('section-advisor');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Close on ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeCareerModal();
+        });
+function renderSkills() {
             const container = document.getElementById('skillsGrid');
             if (!container) return;
             if (!container) return;
